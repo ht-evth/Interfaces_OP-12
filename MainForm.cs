@@ -14,9 +14,9 @@ namespace Catering_OP_6 {
 	public partial class MainForm : Form
 	{
 
-		private int maxRowsFirstTableInExcel = 11;
-		private int maxRowsSecondTableInExcel = 15;
-		private int totalRowsTwoTablesInExcel = 26;
+		private int maxRowsFirstTableInExcel = 29;
+		private int maxRowsSecondTableInExcel = 24;
+		private int totalRowsTwoTablesInExcel = 53;
 
 		PersonsForm personsForm;
 
@@ -128,8 +128,9 @@ namespace Catering_OP_6 {
 
 
 
-		/*
-		private void ExportToExcel() {
+
+		private void ExportToExcel() 
+		{
 			// создание эксель файла и загрузка по ячейкам данных
 
 			// возможно сделать проверку данных
@@ -150,62 +151,76 @@ namespace Catering_OP_6 {
 			// и пытаемся скопировать файл экселя и заполнить его данными
 			try {
 				// формируем имя файла
-				string nameFile = "OP-6_" + TextBox_DocNum.Text + "_" + DateTimePicker_DocDate.Value.Date.Day.ToString() + "_" + DateTimePicker_DocDate.Value.Date.Month.ToString() + "_" + DateTimePicker_DocDate.Value.Date.Year.ToString() + "_" + DateTimePicker_DocDate.Value.Hour.ToString() + "_" + DateTimePicker_DocDate.Value.Minute.ToString() + "_" + DateTimePicker_DocDate.Value.Second.ToString() + ".XLS";
+				string nameFile = "OP-12_" + TextBox_DocNum.Text + "_" + DateTimePicker_DocDate.Value.Date.Day.ToString() + "_" + DateTimePicker_DocDate.Value.Date.Month.ToString() + "_" + DateTimePicker_DocDate.Value.Date.Year.ToString() + "_" + DateTimePicker_DocDate.Value.Hour.ToString() + "_" + DateTimePicker_DocDate.Value.Minute.ToString() + "_" + DateTimePicker_DocDate.Value.Second.ToString() + ".XLS";
 
 				// создаем копию эксель дока который будем заполнять
-				System.IO.File.Copy("OP-6.XLS", nameFile);
+				System.IO.File.Copy("OP-12.xls", nameFile);
 
 				Excel.Application excel = new Excel.Application();
 				Excel.Workbook wb = excel.Workbooks.Open(Directory.GetCurrentDirectory() + "/" + nameFile);
 				Excel.Worksheet wsh = (Excel.Worksheet)excel.ActiveSheet;
 
 				// номер дока + дата
-				wsh.Cells[14, "AO"] = TextBox_DocNum.Text;
-				wsh.Cells[14, "AW"] = DateTimePicker_DocDate.Value.Date.Day.ToString() + "." + DateTimePicker_DocDate.Value.Date.Month.ToString() + "." + DateTimePicker_DocDate.Value.Date.Year.ToString();
+				wsh.Cells[14, "U"] = TextBox_DocNum.Text;
+				wsh.Cells[14, "AB"] = DateTimePicker_DocDate.Value.Date.Day.ToString() + "." + DateTimePicker_DocDate.Value.Date.Month.ToString() + "." + DateTimePicker_DocDate.Value.Date.Year.ToString();
+				wsh.Cells[17, "AL"] = DateTimePicker_DocDate.Value.Date.Day.ToString();
+				wsh.Cells[17, "AN"] = DateTimePicker_DocDate.Value.Date.Month.ToString();
+				wsh.Cells[17, "AU"] = DateTimePicker_DocDate.Value.Date.Year.ToString();
 
 				// организация + подразделения
 				wsh.Cells[6, "A"] = ComboBox_Organization.Text;
-				wsh.Cells[8, "A"] = TextBox_Sender.Text;
-				//wsh.Cells[10, "A"] = TextBox_Recipient.Text;
+				wsh.Cells[8, "A"] = comboBox_StructPodrazd.Text;
 
 				// коды
-				wsh.Cells[6, "BQ"] = TextBox_FormOKPO.Text;
-				wsh.Cells[11, "BQ"] = TextBox_ActivityOKDP.Text;
-				wsh.Cells[12, "BQ"] = TextBox_OperationType.Text;
+				wsh.Cells[6, "AO"] = TextBox_FormOKPO.Text;
+				wsh.Cells[9, "AO"] = TextBox_ActivityOKDP.Text;
+				wsh.Cells[10, "AO"] = TextBox_OperationType.Text;
 
-				// низ эксельки - сумма и количество
-				wsh.Cells[66, "J"] = TextBox_TotalQuantityInWords.Text;
-				wsh.Cells[68, "J"] = TextBox_TotalSumRubInWords.Text;
-				wsh.Cells[68, "BQ"] = TextBox_TotalSumKopek.Text;
+				
+				// лица
+				wsh.Cells[13, "AM"] = posts[0];
 
-				// верх эксельки - лица
-				wsh.Cells[15, "T"] = posts[0];
-				wsh.Cells[17, "I"] = posts[1];
+				wsh.Cells[100, "AC"] = fullNames[0];
+				wsh.Cells[102, "AC"] = fullNames[1];
+				wsh.Cells[104, "AC"] = fullNames[2];
+				wsh.Cells[111, "O"] = fullNames[3];
+				wsh.Cells[113, "U"] = fullNames[4];
 
-				wsh.Cells[15, "AC"] = fullNames[0];
-				wsh.Cells[17, "AA"] = fullNames[1];
-				wsh.Cells[17, "BK"] = fullNames[2];
+				wsh.Cells[102, "H"] = posts[2];
+				wsh.Cells[104, "H"] = posts[3];
 
-				// низ эксельки - лица
-				wsh.Cells[70, "J"] = posts[2];
-				wsh.Cells[70, "AV"] = posts[3];
-				wsh.Cells[72, "J"] = posts[4];
 
-				wsh.Cells[70, "AD"] = fullNames[3];
-				wsh.Cells[70, "BL"] = fullNames[4];
-				wsh.Cells[72, "AD"] = fullNames[5];
+				// специи и соль
+				wsh.Cells[93, "E"] = textBox_salt.Text;
+				wsh.Cells[93, "T"] = textBox_salt_rub.Text;
+				wsh.Cells[93, "AL"] = textBox_salt_cop.Text;
 
-				// таблица "всего по документу"
-				wsh.Cells[62, "Y"] = TextBox_TotalAmount.Text;
-				wsh.Cells[62, "AB"] = TextBox_TotalAmountLeaveTime_2.Text;
-				wsh.Cells[62, "AE"] = TextBox_TotalFactSum.Text;
-				wsh.Cells[62, "AH"] = TextBox_TotalAmountLeaveTime_4.Text;
-				wsh.Cells[62, "AK"] = TextBox_TotalRecordSum.Text;
-				wsh.Cells[62, "AN"] = TextBox_TotalAmountLeaveTime_6.Text;
-				wsh.Cells[62, "AQ"] = TextBox_TotalProductsReturned.Text;
-				wsh.Cells[62, "AV"] = TextBox_TotalProductsLeavedWithoutReturned.Text;
-				wsh.Cells[62, "BE"] = TextBox_TotalSum_DiscountPrice.Text;
-				wsh.Cells[62, "BO"] = TextBox_TotalSum_SellingPrice.Text;
+				wsh.Cells[95, "D"] = textBox_salt.Text;
+				wsh.Cells[95, "T"] = textBox_salt_rub.Text;
+				wsh.Cells[95, "AL"] = textBox_salt_cop.Text;
+
+				// специи и соль - итого
+				wsh.Cells[97, "T"] = textBox_total_spices_salt_rub.Text;
+				wsh.Cells[97, "AL"] = textBox_total_spices_salt_cop.Text;
+
+				// выручка кассы
+				wsh.Cells[107, "I"] = TextBox_TotalSumRubInWords.Text; 
+				wsh.Cells[109, "AS"] = TextBox_TotalSumKopek.Text; 
+
+
+				// итог по таблице
+				wsh.Cells[56, "V"] = TextBox_TotalAmount.Text;
+				wsh.Cells[56, "AE"] = TextBox_TotalFactSum.Text;
+				wsh.Cells[56, "AO"] = TextBox_TotalRecordSum.Text;
+
+				wsh.Cells[90, "V"] = 0.ToString();
+				wsh.Cells[90, "AE"] = 0.ToString();
+				wsh.Cells[90, "AO"] = 0.ToString();
+
+				wsh.Cells[91, "V"] = TextBox_TotalAmount.Text;
+				wsh.Cells[91, "AE"] = TextBox_TotalFactSum.Text;
+				wsh.Cells[91, "AO"] = TextBox_TotalRecordSum.Text;
+
 
 				// таблицы 1 и 2
 				int numRowsFirstTable, numRowsSecondTable;
@@ -223,9 +238,9 @@ namespace Catering_OP_6 {
 					numRowsSecondTable = 0;
 				}
 
-				FillTableInExcel(wsh, rows, numRowsFirstTable, 26, 37, 0);
+				FillTableInExcel(wsh, rows, numRowsFirstTable, 26, 56, 0);
 
-				if (numRowsSecondTable > 0) FillTableInExcel(wsh, rows, numRowsSecondTable, 46, 61, maxRowsFirstTableInExcel);
+				if (numRowsSecondTable > 0) FillTableInExcel(wsh, rows, numRowsSecondTable, 65, 90, maxRowsFirstTableInExcel);
 
 
 				wb.Save();
@@ -235,6 +250,8 @@ namespace Catering_OP_6 {
 				MessageBox.Show(e.Message);
 			}
 		}
+
+		/*
 
 		private void ClearForm() {
 			// очистить все текстбоксы + таблицу
@@ -277,9 +294,6 @@ namespace Catering_OP_6 {
 			ExportToExcel();
 		}
 
-		private void Button_ExportToExcel_Click(object sender, EventArgs e) {
-			ExportToExcel();
-		}
 
 		private void ToolStripMenuItem_ClearForm_Click(object sender, EventArgs e) {
 
@@ -482,181 +496,154 @@ namespace Catering_OP_6 {
 
 		}
 
-		/*
-			private bool CheckData(List<string> posts, List<string> fullNames, List<RowInTable> rows) {
+        private void Button_ExportToExcel_Click(object sender, EventArgs e)
+        {
+			ExportToExcel();
+		}
 
-				// посчитать кол-во пустых полей
-				// их наименования
-				// через messagebox узнать у пользователя
+    
+		private bool CheckData(List<string> posts, List<string> fullNames, List<RowInTable> rows) 
+		{
 
-				int numWarnings = 0;
-				string warnings = "Не были заполнены следующие поля:\r\n";
+			// посчитать кол-во пустых полей
+			// их наименования
+			// через messagebox узнать у пользователя
 
-				void Checking(string text, string warning) {
-					if (string.IsNullOrEmpty(text)) { warnings += (warning + "\r\n"); numWarnings++; }
+			int numWarnings = 0;
+			string warnings = "Не были заполнены следующие поля:\r\n";
+
+			void Checking(string text, string warning) {
+				if (string.IsNullOrEmpty(text)) { warnings += (warning + "\r\n"); numWarnings++; }
+			}
+
+			Checking(TextBox_DocNum.Text, "Номер документа");
+			Checking(TextBox_FormOKPO.Text, "Форма ОКПО");
+			Checking(TextBox_ActivityOKDP.Text, "Вид деятельности по ОКДП");
+			Checking(TextBox_OperationType.Text, "Вид операции");
+			Checking(comboBox_StructPodrazd.Text, "Структурное подразделение");
+			Checking(TextBox_TotalSumRubInWords.Text, "Сумма прописью");
+			Checking(this.textBox_spices.Text, "% специй");
+			Checking(this.textBox_salt.Text, "% соли");
+
+
+			Checking(posts[0], "Утвердил - должность");
+
+			Checking(posts[1], "Член комиссии 1 - должность");
+			Checking(posts[2], "Член комиссии 2 - должность");
+			Checking(posts[3], "Член комиссии 3 - должность");
+			Checking(posts[4], "Проверил - должность");
+
+			Checking(fullNames[0], "Член комиссии 1 - ФИО");
+			Checking(fullNames[1], "Член комиссии 2 - ФИО");
+			Checking(fullNames[2], "Член комиссии 3 - ФИО");
+			Checking(fullNames[3], "Кассир - ФИО");
+			Checking(fullNames[4], "Проверил - ФИО");
+
+			if (rows.Count > totalRowsTwoTablesInExcel) { warnings += "Количество строк в таблице больше 53. Будет записано только 53 строки.\r\n"; numWarnings++; }
+
+			if (numWarnings > 0) {
+				warnings += "\r\nВсего предупреждений: " + numWarnings + ". Продолжить?";
+
+				DialogResult dialogResult = MessageBox.Show( warnings, "Предупреждение", MessageBoxButtons.YesNo);
+				if (dialogResult == DialogResult.Yes) {
+					return true;
 				}
-
-				Checking(TextBox_DocNum.Text, "Номер документ");
-
-				Checking(TextBox_FormOKPO.Text, "Форма ОКПО");
-				Checking(TextBox_ActivityOKDP.Text, "Вид деятельности по ОКДП");
-				Checking(TextBox_OperationType.Text, "Вид операции");
-
-				Checking(TextBox_Sender.Text, "Структурное подразделение «отправитель»");
-				//Checking(TextBox_Recipient.Text, "Структурное подразделение «получатель»");
-
-				Checking(TextBox_TotalQuantityInWords.Text, "Количество прописью");
-				Checking(TextBox_TotalSumRubInWords.Text, "Сумма прописью");
-
-				Checking(posts[0], "Мат. ответств. лицо - должность");
-				Checking(posts[1], "Руководитель - должность");
-				Checking(posts[2], "Отпустил - должность");
-				Checking(posts[3], "Принял - должность");
-				Checking(posts[4], "Проверил - должность");
-
-				Checking(fullNames[0], "Мат. ответств. лицо - ФИО");
-				Checking(fullNames[1], "Руководитель - ФИО");
-				Checking(fullNames[2], "Главный (старший) бухгалтер - ФИО");
-				Checking(fullNames[3], "Отпустил - ФИО");
-				Checking(fullNames[4], "Принял - ФИО");
-				Checking(fullNames[5], "Проверил - ФИО");
-
-				if (rows.Count > totalRowsTwoTablesInExcel) { warnings += "Количество строк в таблице больше 26. Будет записано только 26 строк.\r\n"; numWarnings++; }
-
-				if (numWarnings > 0) {
-					warnings += "\r\nВсего предупреждений: " + numWarnings + ". Продолжить?";
-
-					DialogResult dialogResult = MessageBox.Show( warnings, "Предупреждение", MessageBoxButtons.YesNo);
-					if (dialogResult == DialogResult.Yes) {
-						return true;
-					}
-					else if (dialogResult == DialogResult.No) {
-						return false;
-					}
+				else if (dialogResult == DialogResult.No) {
+					return false;
 				}
-
-				// по дефолту - все ок
-				return true;
 			}
 
-			private List<RowInTable> GetAllRows() {
-				// получить список всех строк таблицы формы
-
-				List<RowInTable> res = new List<RowInTable>();
-
-				int numRows = dataGridView_DocData.Rows.Count;
-				for (int i = 0; i < numRows; i++) {
-					RowInTable curRow = new RowInTable();
-					curRow.productName = Convert.ToString(dataGridView_DocData[0, i].Value);
-					curRow.productCode = Convert.ToString(dataGridView_DocData[1, i].Value);
-
-					curRow.measurmentUnitName = Convert.ToString(dataGridView_DocData[2, i].Value);
-					curRow.measurmentUnitCode = Convert.ToString(dataGridView_DocData[3, i].Value);
-
-					curRow.leaveTime_1 = Convert.ToString(dataGridView_DocData[4, i].Value);
-					curRow.leaveTime_2 = Convert.ToString(dataGridView_DocData[5, i].Value); 
-					curRow.leaveTime_3 = Convert.ToString(dataGridView_DocData[6, i].Value);
-					curRow.leaveTime_4 = Convert.ToString(dataGridView_DocData[7, i].Value);
-					curRow.leaveTime_5 = Convert.ToString(dataGridView_DocData[8, i].Value);
-					curRow.leaveTime_6 = Convert.ToString(dataGridView_DocData[9, i].Value);
-
-					curRow.productReturned = Convert.ToString(dataGridView_DocData[10, i].Value);
-					curRow.productReturnedWithoutLeaving = Convert.ToString(dataGridView_DocData[11, i].Value);
-
-					curRow.discountPrice = Convert.ToString(dataGridView_DocData[12, i].Value);
-					curRow.discountPriceSum = Convert.ToString(dataGridView_DocData[13, i].Value);
-
-					curRow.sellingPrice = Convert.ToString(dataGridView_DocData[14, i].Value);
-					curRow.sellingPriceSum = Convert.ToString(dataGridView_DocData[15, i].Value);
-
-					curRow.note = Convert.ToString(dataGridView_DocData[16, i].Value);
-
-					res.Add(curRow);
-				}
-
-				return res;
-			}
+			// по дефолту - все ок
+			return true;
+		}
 
 
-			private void FillTableInExcel(Excel.Worksheet wsh, List<RowInTable> rows, int numRows, int startRowIndex, int totalRowIndex, int listShift) {
-				// заполнить таблицу в экселе
+		private List<RowInTable> GetAllRows() 
+		{
+			// получить список всех строк таблицы формы
 
-				double[] temp = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+			List<RowInTable> res = new List<RowInTable>();
 
-				// заполнение таблицы и вычисление значений для строки "итого"
-				for (int i = 0; i < numRows; i++) {
-					RowInTable curRow = rows[listShift + i];
-
-					wsh.Cells[startRowIndex + i, "A"] = curRow.productName;
-					wsh.Cells[startRowIndex + i, "M"] = curRow.productCode;
-
-					wsh.Cells[startRowIndex + i, "Q"] = curRow.measurmentUnitName;
-					wsh.Cells[startRowIndex + i, "U"] = curRow.measurmentUnitCode;
-
-					wsh.Cells[startRowIndex + i, "Y"] = curRow.leaveTime_1;
-					wsh.Cells[startRowIndex + i, "AB"] = curRow.leaveTime_2;
-					wsh.Cells[startRowIndex + i, "AE"] = curRow.leaveTime_3;
-					wsh.Cells[startRowIndex + i, "AH"] = curRow.leaveTime_4;
-					wsh.Cells[startRowIndex + i, "AK"] = curRow.leaveTime_5;
-					wsh.Cells[startRowIndex + i, "AN"] = curRow.leaveTime_6;
-
-					wsh.Cells[startRowIndex + i, "AQ"] = curRow.productReturned;
-					wsh.Cells[startRowIndex + i, "AV"] = curRow.productReturnedWithoutLeaving;
-
-					wsh.Cells[startRowIndex + i, "AZ"] = curRow.discountPrice;
-					wsh.Cells[startRowIndex + i, "BE"] = curRow.discountPriceSum;
-
-					wsh.Cells[startRowIndex + i, "BJ"] = curRow.sellingPrice;
-					wsh.Cells[startRowIndex + i, "BO"] = curRow.sellingPriceSum;
-
-					wsh.Cells[startRowIndex + i, "BT"] = curRow.note;
-
-					temp[0] += (curRow.leaveTime_1 == string.Empty ? 0.0 : Convert.ToDouble(curRow.leaveTime_1));
-					temp[1] += (curRow.leaveTime_2 == string.Empty ? 0.0 : Convert.ToDouble(curRow.leaveTime_2));
-					temp[2] += (curRow.leaveTime_3 == string.Empty ? 0.0 : Convert.ToDouble(curRow.leaveTime_3));
-					temp[3] += (curRow.leaveTime_4 == string.Empty ? 0.0 : Convert.ToDouble(curRow.leaveTime_4));
-					temp[4] += (curRow.leaveTime_5 == string.Empty ? 0.0 : Convert.ToDouble(curRow.leaveTime_5));
-					temp[5] += (curRow.leaveTime_6 == string.Empty ? 0.0 : Convert.ToDouble(curRow.leaveTime_6));
-					temp[6] += (curRow.productReturned == string.Empty ? 0.0 : Convert.ToDouble(curRow.productReturned));
-					temp[7] += (curRow.productReturnedWithoutLeaving == string.Empty ? 0.0 : Convert.ToDouble(curRow.productReturnedWithoutLeaving));
-					temp[8] += (curRow.discountPriceSum == string.Empty ? 0.0 : Convert.ToDouble(curRow.discountPriceSum));
-					temp[9] += (curRow.sellingPriceSum == string.Empty ? 0.0 : Convert.ToDouble(curRow.sellingPriceSum));
-				}
-
-				// "итого" для таблицы
-				wsh.Cells[totalRowIndex, "Y"] = temp[0];
-				wsh.Cells[totalRowIndex, "AB"] = temp[1];
-				wsh.Cells[totalRowIndex, "AE"] = temp[2];
-				wsh.Cells[totalRowIndex, "AH"] = temp[3];
-				wsh.Cells[totalRowIndex, "AK"] = temp[4];
-				wsh.Cells[totalRowIndex, "AN"] = temp[5];
-				wsh.Cells[totalRowIndex, "AQ"] = temp[6];
-				wsh.Cells[totalRowIndex, "AV"] = temp[7];
-				wsh.Cells[totalRowIndex, "BE"] = temp[8];
-				wsh.Cells[totalRowIndex, "BO"] = temp[9];
-			}
-
-			private void dataGridView_DocData_UserAddedRow(object sender, DataGridViewRowEventArgs e) {
-				if (dataGridView_DocData.Rows.Count > 26) dataGridView_DocData.AllowUserToAddRows = false; else dataGridView_DocData.AllowUserToDeleteRows = true;
-
-				ReCountTotal();
-			}
-
-			private void dataGridView_DocData_UserDeletedRow(object sender, DataGridViewRowEventArgs e) {
-				if (dataGridView_DocData.Rows.Count < 26) dataGridView_DocData.AllowUserToAddRows = true;
-
-				ReCountTotal();
-			}
-
-			private void ToolStripMenuItem_Exit_Click(object sender, EventArgs e) {
-				Close();
-			}
-
-			private void panel_table_Paint(object sender, PaintEventArgs e)
+			int numRows = dataGridView_DocData.Rows.Count;
+			for (int i = 0; i < numRows; i++) 
 			{
+				RowInTable curRow = new RowInTable();
+				curRow.row_num = Convert.ToString(dataGridView_DocData[0, i].Value);
+				curRow.card_number = Convert.ToString(dataGridView_DocData[1, i].Value);
+				curRow.name = Convert.ToString(dataGridView_DocData[2, i].Value);
+				curRow.code = Convert.ToString(dataGridView_DocData[3, i].Value);
+				curRow.amount = Convert.ToString(dataGridView_DocData[4, i].Value);
+				curRow.fact_price = Convert.ToString(dataGridView_DocData[5, i].Value);
+				curRow.fact_sum = Convert.ToString(dataGridView_DocData[6, i].Value);
+				curRow.record_price = Convert.ToString(dataGridView_DocData[7, i].Value);
+				curRow.record_sum = Convert.ToString(dataGridView_DocData[8, i].Value);
+				curRow.note = Convert.ToString(dataGridView_DocData[9, i].Value);
+				
+				res.Add(curRow);
+			}
+
+			return res;
+		}
+
+
+		private void FillTableInExcel(Excel.Worksheet wsh, List<RowInTable> rows, int numRows, int startRowIndex, int totalRowIndex, int listShift)
+		{
+			// заполнить таблицу в экселе
+
+			int total_amount = 0;
+			double total_fact = 0;
+			double total_record = 0;
+
+			// заполнение таблицы и вычисление значений для строки "итого"
+			for (int i = 0; i < numRows; i++) {
+				RowInTable curRow = rows[listShift + i];
+
+				wsh.Cells[startRowIndex + i, "A"] = curRow.row_num;
+
+				wsh.Cells[startRowIndex + i, "D"] = curRow.card_number;
+				wsh.Cells[startRowIndex + i, "H"] = curRow.name;
+				wsh.Cells[startRowIndex + i, "S"] = curRow.code;
+				wsh.Cells[startRowIndex + i, "V"] = curRow.amount;
+
+				wsh.Cells[startRowIndex + i, "Z"] = curRow.fact_price;
+				wsh.Cells[startRowIndex + i, "AE"] = curRow.fact_sum;
+				wsh.Cells[startRowIndex + i, "AJ"] = curRow.record_price;
+				wsh.Cells[startRowIndex + i, "AO"] = curRow.record_sum;
+				wsh.Cells[startRowIndex + i, "AT"] = curRow.note;
+
+				total_amount += Convert.ToInt32(curRow.amount);
+				total_fact += Convert.ToDouble(curRow.fact_sum);
+				total_record += Convert.ToDouble(curRow.record_sum);
 
 			}
-		}*/
-    }
+
+			// "итого" для таблицы
+			wsh.Cells[totalRowIndex, "V"] = total_amount;
+			wsh.Cells[totalRowIndex, "AE"] = total_fact;
+			wsh.Cells[totalRowIndex, "AO"] = total_record;
+
+		}
+
+		private void dataGridView_DocData_UserAddedRow(object sender, DataGridViewRowEventArgs e) {
+			if (dataGridView_DocData.Rows.Count > 53) dataGridView_DocData.AllowUserToAddRows = false; else dataGridView_DocData.AllowUserToDeleteRows = true;
+
+			ReCountTotal();
+		}
+
+		private void dataGridView_DocData_UserDeletedRow(object sender, DataGridViewRowEventArgs e) {
+			if (dataGridView_DocData.Rows.Count < 53) dataGridView_DocData.AllowUserToAddRows = true;
+
+			ReCountTotal();
+		}
+
+		private void ToolStripMenuItem_Exit_Click(object sender, EventArgs e) {
+			Close();
+		}
+
+		private void panel_table_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+	}
 }
 	

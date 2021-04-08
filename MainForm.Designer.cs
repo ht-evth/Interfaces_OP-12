@@ -78,16 +78,6 @@ namespace Catering_OP_6 {
             this.TextBox_TotalAmountLeaveTime_2 = new System.Windows.Forms.TextBox();
             this.TextBox_TotalAmount = new System.Windows.Forms.TextBox();
             this.dataGridView_DocData = new System.Windows.Forms.DataGridView();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnMeasurmentUnitsName = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.ColumnProductsName = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ToolStripMenuItem_File = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_Clear = new System.Windows.Forms.ToolStripMenuItem();
@@ -104,6 +94,16 @@ namespace Catering_OP_6 {
             this.TextBox_OperationType = new Catering_OP_6.PlaceHolderTextBox();
             this.TextBox_ActivityOKDP = new Catering_OP_6.PlaceHolderTextBox();
             this.TextBox_FormOKPO = new Catering_OP_6.PlaceHolderTextBox();
+            this.num_row = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.num_card = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.code = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fact_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fact_sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_table.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DocData)).BeginInit();
@@ -227,6 +227,7 @@ namespace Catering_OP_6 {
             this.Button_ExportToExcel.TabIndex = 12;
             this.Button_ExportToExcel.Text = "Экспортировать в Excel";
             this.Button_ExportToExcel.UseVisualStyleBackColor = true;
+            this.Button_ExportToExcel.Click += new System.EventHandler(this.Button_ExportToExcel_Click);
             // 
             // label12
             // 
@@ -698,16 +699,16 @@ namespace Catering_OP_6 {
             this.dataGridView_DocData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_DocData.ColumnHeadersVisible = false;
             this.dataGridView_DocData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column2,
-            this.ColumnMeasurmentUnitsName,
-            this.ColumnProductsName,
-            this.Column4,
-            this.Column5,
-            this.Column13,
-            this.Column14,
-            this.Column15,
-            this.Column16,
-            this.Column17});
+            this.num_row,
+            this.num_card,
+            this.name,
+            this.code,
+            this.amount,
+            this.fact_price,
+            this.fact_sum,
+            this.price,
+            this.sum,
+            this.note});
             this.dataGridView_DocData.Location = new System.Drawing.Point(-1, 116);
             this.dataGridView_DocData.Name = "dataGridView_DocData";
             this.dataGridView_DocData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -716,84 +717,6 @@ namespace Catering_OP_6 {
             this.dataGridView_DocData.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DocData_CellValueChanged);
             this.dataGridView_DocData.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_DocData_EditingControlShowing);
             this.dataGridView_DocData.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridView_DocData_RowPrePaint);
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Номер по порядку";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column2.Width = 48;
-            // 
-            // ColumnMeasurmentUnitsName
-            // 
-            this.ColumnMeasurmentUnitsName.HeaderText = "Номер калькуляционной карточки";
-            this.ColumnMeasurmentUnitsName.Name = "ColumnMeasurmentUnitsName";
-            this.ColumnMeasurmentUnitsName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ColumnMeasurmentUnitsName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ColumnMeasurmentUnitsName.Width = 59;
-            // 
-            // ColumnProductsName
-            // 
-            this.ColumnProductsName.HeaderText = "Наименование";
-            this.ColumnProductsName.Name = "ColumnProductsName";
-            this.ColumnProductsName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ColumnProductsName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ColumnProductsName.Width = 274;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Код";
-            this.Column4.Name = "Column4";
-            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column4.Width = 84;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Количество";
-            this.Column5.Name = "Column5";
-            this.Column5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column5.Width = 62;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "Цена, руб. коп.";
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            this.Column13.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column13.Width = 91;
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "Сумма, руб. коп.";
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            this.Column14.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column14.Width = 92;
-            // 
-            // Column15
-            // 
-            this.Column15.HeaderText = "Цена, руб. коп.";
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
-            this.Column15.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column15.Width = 92;
-            // 
-            // Column16
-            // 
-            this.Column16.HeaderText = "Сумма, руб. коп.";
-            this.Column16.Name = "Column16";
-            this.Column16.ReadOnly = true;
-            this.Column16.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column16.Width = 92;
-            // 
-            // Column17
-            // 
-            this.Column17.HeaderText = "Примечание";
-            this.Column17.Name = "Column17";
-            this.Column17.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column17.Width = 118;
             // 
             // menuStrip1
             // 
@@ -947,6 +870,84 @@ namespace Catering_OP_6 {
             this.TextBox_FormOKPO.Text = "форма по ОКПО";
             this.TextBox_FormOKPO.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // num_row
+            // 
+            this.num_row.HeaderText = "Номер по порядку";
+            this.num_row.Name = "num_row";
+            this.num_row.ReadOnly = true;
+            this.num_row.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.num_row.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.num_row.Width = 48;
+            // 
+            // num_card
+            // 
+            this.num_card.HeaderText = "Номер калькуляционной карточки";
+            this.num_card.Name = "num_card";
+            this.num_card.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.num_card.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.num_card.Width = 59;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Наименование";
+            this.name.Name = "name";
+            this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.name.Width = 274;
+            // 
+            // code
+            // 
+            this.code.HeaderText = "Код";
+            this.code.Name = "code";
+            this.code.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.code.Width = 84;
+            // 
+            // amount
+            // 
+            this.amount.HeaderText = "Количество";
+            this.amount.Name = "amount";
+            this.amount.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.amount.Width = 62;
+            // 
+            // fact_price
+            // 
+            this.fact_price.HeaderText = "Цена, руб. коп.";
+            this.fact_price.Name = "fact_price";
+            this.fact_price.ReadOnly = true;
+            this.fact_price.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.fact_price.Width = 91;
+            // 
+            // fact_sum
+            // 
+            this.fact_sum.HeaderText = "Сумма, руб. коп.";
+            this.fact_sum.Name = "fact_sum";
+            this.fact_sum.ReadOnly = true;
+            this.fact_sum.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.fact_sum.Width = 92;
+            // 
+            // price
+            // 
+            this.price.HeaderText = "Цена, руб. коп.";
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            this.price.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.price.Width = 92;
+            // 
+            // sum
+            // 
+            this.sum.HeaderText = "Сумма, руб. коп.";
+            this.sum.Name = "sum";
+            this.sum.ReadOnly = true;
+            this.sum.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.sum.Width = 92;
+            // 
+            // note
+            // 
+            this.note.HeaderText = "Примечание";
+            this.note.Name = "note";
+            this.note.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.note.Width = 118;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -1065,16 +1066,16 @@ namespace Catering_OP_6 {
         private System.Windows.Forms.TextBox textBox_spices;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewComboBoxColumn ColumnMeasurmentUnitsName;
-        private System.Windows.Forms.DataGridViewComboBoxColumn ColumnProductsName;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn num_row;
+        private System.Windows.Forms.DataGridViewComboBoxColumn num_card;
+        private System.Windows.Forms.DataGridViewComboBoxColumn name;
+        private System.Windows.Forms.DataGridViewComboBoxColumn code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fact_price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fact_sum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn note;
     }
 }
 

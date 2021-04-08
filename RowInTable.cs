@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Catering_OP_6 {
 	class RowInTable {
 
-		public string number { get; set; }
+		public string row_num { get; set; }
 		public string card_number { get; set; }
 
 		public string name { get; set; }
