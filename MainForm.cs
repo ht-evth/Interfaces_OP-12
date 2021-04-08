@@ -531,7 +531,6 @@ namespace Catering_OP_6 {
 			Checking(posts[1], "Член комиссии 1 - должность");
 			Checking(posts[2], "Член комиссии 2 - должность");
 			Checking(posts[3], "Член комиссии 3 - должность");
-			Checking(posts[4], "Проверил - должность");
 
 			Checking(fullNames[0], "Член комиссии 1 - ФИО");
 			Checking(fullNames[1], "Член комиссии 2 - ФИО");
