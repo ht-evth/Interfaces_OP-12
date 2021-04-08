@@ -399,7 +399,16 @@ namespace Catering_OP_6 {
 
 
         
-		private void ReCountRow(int row) {
+		private void ReCountRow(int row) 
+		{
+			if (String.IsNullOrWhiteSpace(Convert.ToString(dataGridView_DocData[4, row].Value))
+				|| String.IsNullOrWhiteSpace(Convert.ToString(dataGridView_DocData[5, row].Value))
+				|| String.IsNullOrWhiteSpace(Convert.ToString(dataGridView_DocData[7, row].Value)))
+				return;
+
+			if (String.IsNullOrWhiteSpace(Convert.ToString(dataGridView_DocData[5, row].Value))
+				|| String.IsNullOrWhiteSpace(Convert.ToString(dataGridView_DocData[7, row].Value)))
+				return;
 
 			// если будет ошибка - например ввели букву, то проставить минусы
 			// чтоб прога не вылетела
@@ -435,8 +444,8 @@ namespace Catering_OP_6 {
 				double TotalSum_Fact= 0, TotalSum_Record = 0, Total_Amount = 0;
 
 				// суммируем во всех строках таблицы нужные значения
-				for (int i = 0; i < numRows; i++)
-				{
+				for (int i = 0; i < numRows - 1; i++)
+				{ 
 					Total_Amount += Convert.ToInt32(dataGridView_DocData[4, i].Value);
 					TotalSum_Fact += Convert.ToDouble(dataGridView_DocData[6, i].Value);
 					TotalSum_Record += Convert.ToDouble(dataGridView_DocData[8, i].Value);				
@@ -448,7 +457,8 @@ namespace Catering_OP_6 {
 				TextBox_TotalRecordSum.Text = TotalSum_Record.ToString();
 				
 				// функция чтобы вывести в текстбоксы словами значения
-				TotalValuesToTextBoxes(TotalProductsLeavedWithoutReturned, TotalSum_SellingPrice);
+				TotalValuesToTextBoxes(Math.Round(TotalSum_Fact));
+				TextBox_TotalSumKopek.Text = (Math.Round(100 * (TotalSum_Fact - Math.Floor(TotalSum_Fact)))).ToString();
 			}
 			catch (Exception e) 
 			{
@@ -464,21 +474,15 @@ namespace Catering_OP_6 {
 		}
 
 
-		private void TotalValuesToTextBoxes(double quantity, double sum) {
+		private void TotalValuesToTextBoxes(double sum) {
 			// отключить плейсхолдера
 			// вывести значение переведенное в строку
 			TextBox_TotalSumRubInWords.removePlaceHolder();
-			TextBox_TotalQuantityInWords.Text = NumToWord.Translate(quantity);
+			TextBox_TotalSumRubInWords.Text = NumToWord.Translate(sum);
 
-			// отключить плейсхолдера
-			// вывести значение переведенное в строку
-			TextBox_TotalSumRubInWords.removePlaceHolder();
-			TextBox_TotalSumRubInWords.Text = NumToWord.Translate(Math.Floor(sum));
-
-			// получить значение после запятой и вывести его
-			TextBox_TotalSumKopek.Text = (Math.Round( 100 * (sum - Math.Floor(sum)))).ToString();
 		}
 
+		/*
 			private bool CheckData(List<string> posts, List<string> fullNames, List<RowInTable> rows) {
 
 				// посчитать кол-во пустых полей

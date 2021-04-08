@@ -113,10 +113,10 @@ namespace Catering_OP_6 {
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe WP", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Font = new System.Drawing.Font("Segoe WP", 11.25F, System.Drawing.FontStyle.Bold);
             this.label4.Location = new System.Drawing.Point(12, 786);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(112, 20);
+            this.label4.Size = new System.Drawing.Size(125, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Выручка кассы";
             // 
@@ -625,23 +625,23 @@ namespace Catering_OP_6 {
             // TextBox_TotalRecordSum
             // 
             this.TextBox_TotalRecordSum.Enabled = false;
-            this.TextBox_TotalRecordSum.Font = new System.Drawing.Font("Segoe WP", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TextBox_TotalRecordSum.Font = new System.Drawing.Font("Segoe WP", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TextBox_TotalRecordSum.Location = new System.Drawing.Point(842, 323);
             this.TextBox_TotalRecordSum.Name = "TextBox_TotalRecordSum";
             this.TextBox_TotalRecordSum.ReadOnly = true;
-            this.TextBox_TotalRecordSum.Size = new System.Drawing.Size(93, 23);
+            this.TextBox_TotalRecordSum.Size = new System.Drawing.Size(93, 27);
             this.TextBox_TotalRecordSum.TabIndex = 101;
             this.TextBox_TotalRecordSum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TextBox_TotalAmountLeaveTime_4
             // 
             this.TextBox_TotalAmountLeaveTime_4.Enabled = false;
-            this.TextBox_TotalAmountLeaveTime_4.Font = new System.Drawing.Font("Segoe WP", 9F, System.Drawing.FontStyle.Bold);
+            this.TextBox_TotalAmountLeaveTime_4.Font = new System.Drawing.Font("Segoe WP", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TextBox_TotalAmountLeaveTime_4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.TextBox_TotalAmountLeaveTime_4.Location = new System.Drawing.Point(750, 323);
             this.TextBox_TotalAmountLeaveTime_4.Name = "TextBox_TotalAmountLeaveTime_4";
             this.TextBox_TotalAmountLeaveTime_4.ReadOnly = true;
-            this.TextBox_TotalAmountLeaveTime_4.Size = new System.Drawing.Size(93, 23);
+            this.TextBox_TotalAmountLeaveTime_4.Size = new System.Drawing.Size(93, 27);
             this.TextBox_TotalAmountLeaveTime_4.TabIndex = 100;
             this.TextBox_TotalAmountLeaveTime_4.Text = "X";
             this.TextBox_TotalAmountLeaveTime_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -649,22 +649,22 @@ namespace Catering_OP_6 {
             // TextBox_TotalFactSum
             // 
             this.TextBox_TotalFactSum.Enabled = false;
-            this.TextBox_TotalFactSum.Font = new System.Drawing.Font("Segoe WP", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TextBox_TotalFactSum.Font = new System.Drawing.Font("Segoe WP", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TextBox_TotalFactSum.Location = new System.Drawing.Point(651, 323);
             this.TextBox_TotalFactSum.Name = "TextBox_TotalFactSum";
             this.TextBox_TotalFactSum.ReadOnly = true;
-            this.TextBox_TotalFactSum.Size = new System.Drawing.Size(100, 23);
+            this.TextBox_TotalFactSum.Size = new System.Drawing.Size(100, 27);
             this.TextBox_TotalFactSum.TabIndex = 99;
             this.TextBox_TotalFactSum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TextBox_TotalAmountLeaveTime_2
             // 
             this.TextBox_TotalAmountLeaveTime_2.Enabled = false;
-            this.TextBox_TotalAmountLeaveTime_2.Font = new System.Drawing.Font("Segoe WP", 9F, System.Drawing.FontStyle.Bold);
+            this.TextBox_TotalAmountLeaveTime_2.Font = new System.Drawing.Font("Segoe WP", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TextBox_TotalAmountLeaveTime_2.Location = new System.Drawing.Point(567, 323);
             this.TextBox_TotalAmountLeaveTime_2.Name = "TextBox_TotalAmountLeaveTime_2";
             this.TextBox_TotalAmountLeaveTime_2.ReadOnly = true;
-            this.TextBox_TotalAmountLeaveTime_2.Size = new System.Drawing.Size(86, 23);
+            this.TextBox_TotalAmountLeaveTime_2.Size = new System.Drawing.Size(86, 27);
             this.TextBox_TotalAmountLeaveTime_2.TabIndex = 98;
             this.TextBox_TotalAmountLeaveTime_2.Text = "X";
             this.TextBox_TotalAmountLeaveTime_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -672,11 +672,11 @@ namespace Catering_OP_6 {
             // TextBox_TotalAmount
             // 
             this.TextBox_TotalAmount.Enabled = false;
-            this.TextBox_TotalAmount.Font = new System.Drawing.Font("Segoe WP", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TextBox_TotalAmount.Font = new System.Drawing.Font("Segoe WP", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TextBox_TotalAmount.Location = new System.Drawing.Point(505, 323);
             this.TextBox_TotalAmount.Name = "TextBox_TotalAmount";
             this.TextBox_TotalAmount.ReadOnly = true;
-            this.TextBox_TotalAmount.Size = new System.Drawing.Size(63, 23);
+            this.TextBox_TotalAmount.Size = new System.Drawing.Size(63, 27);
             this.TextBox_TotalAmount.TabIndex = 97;
             this.TextBox_TotalAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -876,10 +876,10 @@ namespace Catering_OP_6 {
             // 
             this.TextBox_TotalSumRubInWords.Font = new System.Drawing.Font("Segoe WP", 12F, System.Drawing.FontStyle.Italic);
             this.TextBox_TotalSumRubInWords.ForeColor = System.Drawing.Color.Gray;
-            this.TextBox_TotalSumRubInWords.Location = new System.Drawing.Point(130, 782);
+            this.TextBox_TotalSumRubInWords.Location = new System.Drawing.Point(143, 782);
             this.TextBox_TotalSumRubInWords.Name = "TextBox_TotalSumRubInWords";
             this.TextBox_TotalSumRubInWords.PlaceHolderText = "сумма прописью";
-            this.TextBox_TotalSumRubInWords.Size = new System.Drawing.Size(495, 29);
+            this.TextBox_TotalSumRubInWords.Size = new System.Drawing.Size(482, 29);
             this.TextBox_TotalSumRubInWords.TabIndex = 11;
             this.TextBox_TotalSumRubInWords.Text = "сумма прописью";
             this.TextBox_TotalSumRubInWords.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
