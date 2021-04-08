@@ -31,16 +31,16 @@ namespace Catering_OP_6 {
             this.TextBox_Member3_FullName = new Catering_OP_6.PlaceHolderTextBox();
             this.TexBox_Member3_Post = new Catering_OP_6.PlaceHolderTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.TexBox_Member2_Post = new Catering_OP_6.PlaceHolderTextBox();
             this.textBox_Member1_Post = new System.Windows.Forms.TextBox();
+            this.TexBox_Member2_Post = new Catering_OP_6.PlaceHolderTextBox();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.TextBox_Post_CheckPerson = new System.Windows.Forms.TextBox();
             this.folderBrowserDialog2 = new System.Windows.Forms.FolderBrowserDialog();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.TextBox_Cashier_FullName = new Catering_OP_6.PlaceHolderTextBox();
-            this.TextBox_Post_CheckPerson = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -130,9 +130,20 @@ namespace Catering_OP_6 {
             this.groupBox1.Location = new System.Drawing.Point(20, 91);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(554, 151);
-            this.groupBox1.TabIndex = 86;
+            this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Члены комиссии";
+            // 
+            // textBox_Member1_Post
+            // 
+            this.textBox_Member1_Post.Enabled = false;
+            this.textBox_Member1_Post.Location = new System.Drawing.Point(82, 31);
+            this.textBox_Member1_Post.Name = "textBox_Member1_Post";
+            this.textBox_Member1_Post.ReadOnly = true;
+            this.textBox_Member1_Post.Size = new System.Drawing.Size(150, 29);
+            this.textBox_Member1_Post.TabIndex = 85;
+            this.textBox_Member1_Post.Text = "Бригадир";
+            this.textBox_Member1_Post.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TexBox_Member2_Post
             // 
@@ -146,24 +157,13 @@ namespace Catering_OP_6 {
             this.TexBox_Member2_Post.Text = "должность";
             this.TexBox_Member2_Post.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox_Member1_Post
-            // 
-            this.textBox_Member1_Post.Enabled = false;
-            this.textBox_Member1_Post.Location = new System.Drawing.Point(82, 31);
-            this.textBox_Member1_Post.Name = "textBox_Member1_Post";
-            this.textBox_Member1_Post.ReadOnly = true;
-            this.textBox_Member1_Post.Size = new System.Drawing.Size(150, 29);
-            this.textBox_Member1_Post.TabIndex = 85;
-            this.textBox_Member1_Post.Text = "Бригадир";
-            this.textBox_Member1_Post.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.TextBox_Post_FinPerson);
             this.groupBox2.Location = new System.Drawing.Point(20, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(554, 73);
-            this.groupBox2.TabIndex = 87;
+            this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Утвердил";
             // 
@@ -174,9 +174,20 @@ namespace Catering_OP_6 {
             this.groupBox3.Location = new System.Drawing.Point(22, 327);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(554, 73);
-            this.groupBox3.TabIndex = 88;
+            this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Проверил";
+            // 
+            // TextBox_Post_CheckPerson
+            // 
+            this.TextBox_Post_CheckPerson.Enabled = false;
+            this.TextBox_Post_CheckPerson.Location = new System.Drawing.Point(82, 28);
+            this.TextBox_Post_CheckPerson.Name = "TextBox_Post_CheckPerson";
+            this.TextBox_Post_CheckPerson.ReadOnly = true;
+            this.TextBox_Post_CheckPerson.Size = new System.Drawing.Size(150, 29);
+            this.TextBox_Post_CheckPerson.TabIndex = 86;
+            this.TextBox_Post_CheckPerson.Text = "Бухгалтер";
+            this.TextBox_Post_CheckPerson.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // button1
             // 
@@ -194,7 +205,7 @@ namespace Catering_OP_6 {
             this.groupBox4.Location = new System.Drawing.Point(20, 248);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(554, 73);
-            this.groupBox4.TabIndex = 89;
+            this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Кассир";
             // 
@@ -209,17 +220,6 @@ namespace Catering_OP_6 {
             this.TextBox_Cashier_FullName.TabIndex = 8;
             this.TextBox_Cashier_FullName.Text = "фамилия и.о.";
             this.TextBox_Cashier_FullName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // TextBox_Post_CheckPerson
-            // 
-            this.TextBox_Post_CheckPerson.Enabled = false;
-            this.TextBox_Post_CheckPerson.Location = new System.Drawing.Point(82, 28);
-            this.TextBox_Post_CheckPerson.Name = "TextBox_Post_CheckPerson";
-            this.TextBox_Post_CheckPerson.ReadOnly = true;
-            this.TextBox_Post_CheckPerson.Size = new System.Drawing.Size(150, 29);
-            this.TextBox_Post_CheckPerson.TabIndex = 86;
-            this.TextBox_Post_CheckPerson.Text = "Бухгалтер";
-            this.TextBox_Post_CheckPerson.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // PersonsForm
             // 

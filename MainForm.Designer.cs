@@ -124,8 +124,10 @@ namespace Catering_OP_6 {
             // 
             this.TextBox_TotalSumKopek.Location = new System.Drawing.Point(674, 782);
             this.TextBox_TotalSumKopek.Name = "TextBox_TotalSumKopek";
+            this.TextBox_TotalSumKopek.ReadOnly = true;
             this.TextBox_TotalSumKopek.Size = new System.Drawing.Size(80, 29);
             this.TextBox_TotalSumKopek.TabIndex = 12;
+            this.TextBox_TotalSumKopek.TabStop = false;
             this.TextBox_TotalSumKopek.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // DateTimePicker_DocDate
@@ -222,7 +224,7 @@ namespace Catering_OP_6 {
             this.Button_ExportToExcel.Location = new System.Drawing.Point(864, 782);
             this.Button_ExportToExcel.Name = "Button_ExportToExcel";
             this.Button_ExportToExcel.Size = new System.Drawing.Size(200, 29);
-            this.Button_ExportToExcel.TabIndex = 13;
+            this.Button_ExportToExcel.TabIndex = 12;
             this.Button_ExportToExcel.Text = "Экспортировать в Excel";
             this.Button_ExportToExcel.UseVisualStyleBackColor = true;
             // 
@@ -232,7 +234,7 @@ namespace Catering_OP_6 {
             this.label12.Font = new System.Drawing.Font("Segoe WP", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label12.Location = new System.Drawing.Point(41, 7);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(48, 108);
+            this.label12.Size = new System.Drawing.Size(48, 117);
             this.label12.TabIndex = 68;
             this.label12.Text = "Но-\r\nмер\r\nпо по-\r\nряд-\r\nку\r\n";
             this.label12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -265,7 +267,7 @@ namespace Catering_OP_6 {
             this.label15.Font = new System.Drawing.Font("Segoe WP", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label15.Location = new System.Drawing.Point(505, 30);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(63, 85);
+            this.label15.Size = new System.Drawing.Size(63, 94);
             this.label15.TabIndex = 71;
             this.label15.Text = "количе-\r\nство,\r\nшт.\r\n";
             this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -276,7 +278,7 @@ namespace Catering_OP_6 {
             this.label28.Font = new System.Drawing.Font("Segoe WP", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label28.Location = new System.Drawing.Point(421, 30);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(85, 85);
+            this.label28.Size = new System.Drawing.Size(85, 94);
             this.label28.TabIndex = 78;
             this.label28.Text = "код";
             this.label28.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -287,13 +289,14 @@ namespace Catering_OP_6 {
             this.label29.Font = new System.Drawing.Font("Segoe WP", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label29.Location = new System.Drawing.Point(147, 30);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(275, 85);
+            this.label29.Size = new System.Drawing.Size(275, 94);
             this.label29.TabIndex = 77;
             this.label29.Text = "Наименование";
             this.label29.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // panel_table
             // 
+            this.panel_table.Controls.Add(this.dataGridView_DocData);
             this.panel_table.Controls.Add(this.groupBox1);
             this.panel_table.Controls.Add(this.label23);
             this.panel_table.Controls.Add(this.label20);
@@ -309,7 +312,6 @@ namespace Catering_OP_6 {
             this.panel_table.Controls.Add(this.TextBox_TotalFactSum);
             this.panel_table.Controls.Add(this.TextBox_TotalAmountLeaveTime_2);
             this.panel_table.Controls.Add(this.TextBox_TotalAmount);
-            this.panel_table.Controls.Add(this.dataGridView_DocData);
             this.panel_table.Controls.Add(this.label12);
             this.panel_table.Controls.Add(this.label13);
             this.panel_table.Controls.Add(this.label14);
@@ -319,7 +321,7 @@ namespace Catering_OP_6 {
             this.panel_table.Location = new System.Drawing.Point(12, 170);
             this.panel_table.Name = "panel_table";
             this.panel_table.Size = new System.Drawing.Size(1060, 566);
-            this.panel_table.TabIndex = 88;
+            this.panel_table.TabIndex = 8;
             // 
             // groupBox1
             // 
@@ -345,7 +347,7 @@ namespace Catering_OP_6 {
             this.groupBox1.Location = new System.Drawing.Point(20, 379);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1020, 174);
-            this.groupBox1.TabIndex = 118;
+            this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "СПРАВКА: Израсходовано на приготовление блюд";
             // 
@@ -385,6 +387,7 @@ namespace Catering_OP_6 {
             this.textBox_total_spices_salt_cop.ReadOnly = true;
             this.textBox_total_spices_salt_cop.Size = new System.Drawing.Size(80, 29);
             this.textBox_total_spices_salt_cop.TabIndex = 101;
+            this.textBox_total_spices_salt_cop.TabStop = false;
             this.textBox_total_spices_salt_cop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox_total_spices_salt_rub
@@ -394,6 +397,7 @@ namespace Catering_OP_6 {
             this.textBox_total_spices_salt_rub.ReadOnly = true;
             this.textBox_total_spices_salt_rub.Size = new System.Drawing.Size(150, 29);
             this.textBox_total_spices_salt_rub.TabIndex = 100;
+            this.textBox_total_spices_salt_rub.TabStop = false;
             this.textBox_total_spices_salt_rub.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label30
@@ -423,6 +427,7 @@ namespace Catering_OP_6 {
             this.textBox_salt_cop.ReadOnly = true;
             this.textBox_salt_cop.Size = new System.Drawing.Size(80, 29);
             this.textBox_salt_cop.TabIndex = 97;
+            this.textBox_salt_cop.TabStop = false;
             this.textBox_salt_cop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label26
@@ -442,6 +447,7 @@ namespace Catering_OP_6 {
             this.textBox_salt_rub.ReadOnly = true;
             this.textBox_salt_rub.Size = new System.Drawing.Size(150, 29);
             this.textBox_salt_rub.TabIndex = 96;
+            this.textBox_salt_rub.TabStop = false;
             this.textBox_salt_rub.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label27
@@ -461,6 +467,7 @@ namespace Catering_OP_6 {
             this.textBox_spices_rub.ReadOnly = true;
             this.textBox_spices_rub.Size = new System.Drawing.Size(150, 29);
             this.textBox_spices_rub.TabIndex = 95;
+            this.textBox_spices_rub.TabStop = false;
             this.textBox_spices_rub.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox_spices_cop
@@ -470,6 +477,7 @@ namespace Catering_OP_6 {
             this.textBox_spices_cop.ReadOnly = true;
             this.textBox_spices_cop.Size = new System.Drawing.Size(80, 29);
             this.textBox_spices_cop.TabIndex = 91;
+            this.textBox_spices_cop.TabStop = false;
             this.textBox_spices_cop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label25
@@ -530,7 +538,7 @@ namespace Catering_OP_6 {
             this.label23.Font = new System.Drawing.Font("Segoe WP", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label23.Location = new System.Drawing.Point(934, 7);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(118, 108);
+            this.label23.Size = new System.Drawing.Size(120, 117);
             this.label23.TabIndex = 117;
             this.label23.Text = "Примечание";
             this.label23.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -541,7 +549,7 @@ namespace Catering_OP_6 {
             this.label20.Font = new System.Drawing.Font("Segoe WP", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label20.Location = new System.Drawing.Point(842, 79);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(93, 36);
+            this.label20.Size = new System.Drawing.Size(93, 45);
             this.label20.TabIndex = 116;
             this.label20.Text = "сумма,\r\nруб. коп.";
             this.label20.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -552,7 +560,7 @@ namespace Catering_OP_6 {
             this.label11.Font = new System.Drawing.Font("Segoe WP", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label11.Location = new System.Drawing.Point(658, 79);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(93, 36);
+            this.label11.Size = new System.Drawing.Size(93, 45);
             this.label11.TabIndex = 115;
             this.label11.Text = "сумма,\r\nруб. коп.";
             this.label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -563,7 +571,7 @@ namespace Catering_OP_6 {
             this.label10.Font = new System.Drawing.Font("Segoe WP", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label10.Location = new System.Drawing.Point(750, 79);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(93, 36);
+            this.label10.Size = new System.Drawing.Size(93, 45);
             this.label10.TabIndex = 114;
             this.label10.Text = "цена,\r\nруб. коп.\r\n\r\n";
             this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -574,7 +582,7 @@ namespace Catering_OP_6 {
             this.label9.Font = new System.Drawing.Font("Segoe WP", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label9.Location = new System.Drawing.Point(567, 79);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(93, 36);
+            this.label9.Size = new System.Drawing.Size(93, 45);
             this.label9.TabIndex = 113;
             this.label9.Text = "цена,\r\nруб. коп.\r\n\r\n";
             this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -607,7 +615,7 @@ namespace Catering_OP_6 {
             this.label6.Font = new System.Drawing.Font("Segoe WP", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.Location = new System.Drawing.Point(88, 7);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 108);
+            this.label6.Size = new System.Drawing.Size(60, 117);
             this.label6.TabIndex = 110;
             this.label6.Text = "Номер\r\nкальку-\r\nляцион-\r\nной\r\nкарточ-\r\nки";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -631,6 +639,7 @@ namespace Catering_OP_6 {
             this.TextBox_TotalRecordSum.ReadOnly = true;
             this.TextBox_TotalRecordSum.Size = new System.Drawing.Size(93, 27);
             this.TextBox_TotalRecordSum.TabIndex = 101;
+            this.TextBox_TotalRecordSum.TabStop = false;
             this.TextBox_TotalRecordSum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TextBox_TotalAmountLeaveTime_4
@@ -643,6 +652,7 @@ namespace Catering_OP_6 {
             this.TextBox_TotalAmountLeaveTime_4.ReadOnly = true;
             this.TextBox_TotalAmountLeaveTime_4.Size = new System.Drawing.Size(93, 27);
             this.TextBox_TotalAmountLeaveTime_4.TabIndex = 100;
+            this.TextBox_TotalAmountLeaveTime_4.TabStop = false;
             this.TextBox_TotalAmountLeaveTime_4.Text = "X";
             this.TextBox_TotalAmountLeaveTime_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -655,6 +665,7 @@ namespace Catering_OP_6 {
             this.TextBox_TotalFactSum.ReadOnly = true;
             this.TextBox_TotalFactSum.Size = new System.Drawing.Size(100, 27);
             this.TextBox_TotalFactSum.TabIndex = 99;
+            this.TextBox_TotalFactSum.TabStop = false;
             this.TextBox_TotalFactSum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TextBox_TotalAmountLeaveTime_2
@@ -666,6 +677,7 @@ namespace Catering_OP_6 {
             this.TextBox_TotalAmountLeaveTime_2.ReadOnly = true;
             this.TextBox_TotalAmountLeaveTime_2.Size = new System.Drawing.Size(86, 27);
             this.TextBox_TotalAmountLeaveTime_2.TabIndex = 98;
+            this.TextBox_TotalAmountLeaveTime_2.TabStop = false;
             this.TextBox_TotalAmountLeaveTime_2.Text = "X";
             this.TextBox_TotalAmountLeaveTime_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -678,6 +690,7 @@ namespace Catering_OP_6 {
             this.TextBox_TotalAmount.ReadOnly = true;
             this.TextBox_TotalAmount.Size = new System.Drawing.Size(63, 27);
             this.TextBox_TotalAmount.TabIndex = 97;
+            this.TextBox_TotalAmount.TabStop = false;
             this.TextBox_TotalAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // dataGridView_DocData
@@ -699,7 +712,7 @@ namespace Catering_OP_6 {
             this.dataGridView_DocData.Name = "dataGridView_DocData";
             this.dataGridView_DocData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView_DocData.Size = new System.Drawing.Size(1055, 201);
-            this.dataGridView_DocData.TabIndex = 96;
+            this.dataGridView_DocData.TabIndex = 8;
             this.dataGridView_DocData.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DocData_CellValueChanged);
             this.dataGridView_DocData.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_DocData_EditingControlShowing);
             this.dataGridView_DocData.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridView_DocData_RowPrePaint);
@@ -849,7 +862,7 @@ namespace Catering_OP_6 {
             this.Link_ResponsiblePersons.Location = new System.Drawing.Point(864, 749);
             this.Link_ResponsiblePersons.Name = "Link_ResponsiblePersons";
             this.Link_ResponsiblePersons.Size = new System.Drawing.Size(158, 21);
-            this.Link_ResponsiblePersons.TabIndex = 90;
+            this.Link_ResponsiblePersons.TabIndex = 11;
             this.Link_ResponsiblePersons.TabStop = true;
             this.Link_ResponsiblePersons.Text = "Ответственные лица";
             this.Link_ResponsiblePersons.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Link_ResponsiblePersons_Click);
@@ -879,8 +892,10 @@ namespace Catering_OP_6 {
             this.TextBox_TotalSumRubInWords.Location = new System.Drawing.Point(143, 782);
             this.TextBox_TotalSumRubInWords.Name = "TextBox_TotalSumRubInWords";
             this.TextBox_TotalSumRubInWords.PlaceHolderText = "сумма прописью";
+            this.TextBox_TotalSumRubInWords.ReadOnly = true;
             this.TextBox_TotalSumRubInWords.Size = new System.Drawing.Size(482, 29);
             this.TextBox_TotalSumRubInWords.TabIndex = 11;
+            this.TextBox_TotalSumRubInWords.TabStop = false;
             this.TextBox_TotalSumRubInWords.Text = "сумма прописью";
             this.TextBox_TotalSumRubInWords.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -904,7 +919,7 @@ namespace Catering_OP_6 {
             this.TextBox_OperationType.Name = "TextBox_OperationType";
             this.TextBox_OperationType.PlaceHolderText = "вид операции";
             this.TextBox_OperationType.Size = new System.Drawing.Size(150, 29);
-            this.TextBox_OperationType.TabIndex = 8;
+            this.TextBox_OperationType.TabIndex = 7;
             this.TextBox_OperationType.Text = "вид операции";
             this.TextBox_OperationType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -916,7 +931,7 @@ namespace Catering_OP_6 {
             this.TextBox_ActivityOKDP.Name = "TextBox_ActivityOKDP";
             this.TextBox_ActivityOKDP.PlaceHolderText = "вид деятельности";
             this.TextBox_ActivityOKDP.Size = new System.Drawing.Size(150, 29);
-            this.TextBox_ActivityOKDP.TabIndex = 7;
+            this.TextBox_ActivityOKDP.TabIndex = 6;
             this.TextBox_ActivityOKDP.Text = "вид деятельности";
             this.TextBox_ActivityOKDP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -928,7 +943,7 @@ namespace Catering_OP_6 {
             this.TextBox_FormOKPO.Name = "TextBox_FormOKPO";
             this.TextBox_FormOKPO.PlaceHolderText = "форма по ОКПО";
             this.TextBox_FormOKPO.Size = new System.Drawing.Size(150, 29);
-            this.TextBox_FormOKPO.TabIndex = 6;
+            this.TextBox_FormOKPO.TabIndex = 5;
             this.TextBox_FormOKPO.Text = "форма по ОКПО";
             this.TextBox_FormOKPO.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 

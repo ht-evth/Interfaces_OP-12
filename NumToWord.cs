@@ -75,7 +75,7 @@ namespace Catering_OP_6 {
             if (s[1] == '1') return r + (ii == 1 ? "" : "ов");
 
             if (new[] { '2', '3', '4' }.Contains(s[2])) {
-                return r + (ii == 1 ? "и" : "а");
+                return r + (ii == 1 ? "и " : "а ");
             }
             else
                 return r + (ii == 1 ? "" : "ов");
