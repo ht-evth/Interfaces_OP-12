@@ -50,7 +50,6 @@ namespace Catering_OP_6 {
 				textBox_Member1_Post.Text,
 				TexBox_Member2_Post.Text,
 				TexBox_Member3_Post.Text,
-				TextBox_Post_CheckPerson.Text,
 			};
 		}
 

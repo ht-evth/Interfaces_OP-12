@@ -24,7 +24,7 @@ namespace Catering_OP_6 {
 		public string note { get; set; }
 
 		public RowInTable() {
-			number = "";
+			row_num = "";
 			card_number = "";
 			name = "";
 			code = "";
