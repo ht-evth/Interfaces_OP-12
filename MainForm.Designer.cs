@@ -495,7 +495,7 @@ namespace Catering_OP_6 {
             this.dataGridView_DocData.Location = new System.Drawing.Point(-1, 116);
             this.dataGridView_DocData.Name = "dataGridView_DocData";
             this.dataGridView_DocData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView_DocData.Size = new System.Drawing.Size(1060, 201);
+            this.dataGridView_DocData.Size = new System.Drawing.Size(1055, 201);
             this.dataGridView_DocData.TabIndex = 96;
             // 
             // Column2
