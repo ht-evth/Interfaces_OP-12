@@ -127,8 +127,6 @@ namespace Catering_OP_6 {
 		}
 
 
-
-
 		private void ExportToExcel() 
 		{
 			// создание эксель файла и загрузка по ячейкам данных
@@ -146,6 +144,13 @@ namespace Catering_OP_6 {
 			// и таблица не пустая или что в ней больше 20 записей
 			// если пользователь отказывается - то выход из экспорта
 			if (CheckData(posts, fullNames, rows) == false) return;
+
+			for (int i = 0; i < rows.Count - 1; i++)
+				if (rows[i].checkRow() == false)
+                {
+					MessageBox.Show("Строка " + rows[i].row_num.ToString() + " заполнена некорректно! (Имеются пустые поля)", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+					return;
+                }
 
 			// иначе продолжаем
 			// и пытаемся скопировать файл экселя и заполнить его данными
@@ -191,9 +196,9 @@ namespace Catering_OP_6 {
 
 
 				// специи и соль
-				wsh.Cells[93, "E"] = textBox_salt.Text;
-				wsh.Cells[93, "T"] = textBox_salt_rub.Text;
-				wsh.Cells[93, "AL"] = textBox_salt_cop.Text;
+				wsh.Cells[93, "E"] = textBox_spices.Text;
+				wsh.Cells[93, "T"] = textBox_spices_rub.Text;
+				wsh.Cells[93, "AL"] = textBox_spices_cop.Text;
 
 				wsh.Cells[95, "D"] = textBox_salt.Text;
 				wsh.Cells[95, "T"] = textBox_salt_rub.Text;
@@ -471,7 +476,7 @@ namespace Catering_OP_6 {
 				TextBox_TotalRecordSum.Text = TotalSum_Record.ToString();
 				
 				// функция чтобы вывести в текстбоксы словами значения
-				TotalValuesToTextBoxes(Math.Round(TotalSum_Fact));
+				TotalValuesToTextBoxes(Math.Floor(TotalSum_Fact));
 				TextBox_TotalSumKopek.Text = (Math.Round(100 * (TotalSum_Fact - Math.Floor(TotalSum_Fact)))).ToString();
 			}
 			catch (Exception e) 
@@ -594,7 +599,7 @@ namespace Catering_OP_6 {
 			double total_record = 0;
 
 			// заполнение таблицы и вычисление значений для строки "итого"
-			for (int i = 0; i < numRows; i++) {
+			for (int i = 0; i < numRows - 1; i++) {
 				RowInTable curRow = rows[listShift + i];
 
 				wsh.Cells[startRowIndex + i, "A"] = curRow.row_num;

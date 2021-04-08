@@ -35,5 +35,17 @@ namespace Catering_OP_6 {
 			record_sum = "";
 			note = "";
 		}
+
+		public bool checkRow()
+        {
+
+			List<string> cells = new List<string>{ row_num, card_number, name, code, amount, fact_price, fact_sum, record_price, record_sum};
+
+			foreach (string item in cells)
+				if (String.IsNullOrWhiteSpace(item))
+					return false;
+
+			return true;
+        }
 	}
 }
