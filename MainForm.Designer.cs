@@ -43,6 +43,26 @@ namespace Catering_OP_6 {
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.panel_table = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.textBox_total_spices_salt_cop = new System.Windows.Forms.TextBox();
+            this.textBox_total_spices_salt_rub = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.textBox_salt_cop = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.textBox_salt_rub = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.textBox_spices_rub = new System.Windows.Forms.TextBox();
+            this.textBox_spices_cop = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.textBox_salt = new System.Windows.Forms.TextBox();
+            this.textBox_spices = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -78,36 +98,16 @@ namespace Catering_OP_6 {
             this.ToolStripMenuItem_Exit = new System.Windows.Forms.ToolStripMenuItem();
             this.Link_ResponsiblePersons = new System.Windows.Forms.LinkLabel();
             this.ComboBox_Organization = new System.Windows.Forms.ComboBox();
+            this.comboBox_StructPodrazd = new System.Windows.Forms.ComboBox();
             this.TextBox_TotalSumRubInWords = new Catering_OP_6.PlaceHolderTextBox();
             this.TextBox_DocNum = new Catering_OP_6.PlaceHolderTextBox();
             this.TextBox_OperationType = new Catering_OP_6.PlaceHolderTextBox();
             this.TextBox_ActivityOKDP = new Catering_OP_6.PlaceHolderTextBox();
             this.TextBox_FormOKPO = new Catering_OP_6.PlaceHolderTextBox();
-            this.comboBox_StructPodrazd = new System.Windows.Forms.ComboBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox_spices = new System.Windows.Forms.TextBox();
-            this.textBox_salt = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.textBox_salt_rub = new System.Windows.Forms.TextBox();
-            this.textBox_spices_rub = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.textBox_spices_cop = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.textBox_salt_cop = new System.Windows.Forms.TextBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.textBox_total_spices_salt_cop = new System.Windows.Forms.TextBox();
-            this.textBox_total_spices_salt_rub = new System.Windows.Forms.TextBox();
-            this.label35 = new System.Windows.Forms.Label();
             this.panel_table.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DocData)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label4
@@ -151,7 +151,7 @@ namespace Catering_OP_6 {
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe WP", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label17.Location = new System.Drawing.Point(864, 66);
+            this.label17.Location = new System.Drawing.Point(857, 66);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(51, 20);
             this.label17.TabIndex = 29;
@@ -161,7 +161,7 @@ namespace Catering_OP_6 {
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe WP", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label18.Location = new System.Drawing.Point(864, 103);
+            this.label18.Location = new System.Drawing.Point(857, 103);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(50, 20);
             this.label18.TabIndex = 30;
@@ -171,7 +171,7 @@ namespace Catering_OP_6 {
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe WP", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label19.Location = new System.Drawing.Point(835, 140);
+            this.label19.Location = new System.Drawing.Point(828, 140);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(80, 20);
             this.label19.TabIndex = 31;
@@ -320,6 +320,209 @@ namespace Catering_OP_6 {
             this.panel_table.Name = "panel_table";
             this.panel_table.Size = new System.Drawing.Size(1060, 566);
             this.panel_table.TabIndex = 88;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label35);
+            this.groupBox1.Controls.Add(this.label32);
+            this.groupBox1.Controls.Add(this.label34);
+            this.groupBox1.Controls.Add(this.textBox_total_spices_salt_cop);
+            this.groupBox1.Controls.Add(this.textBox_total_spices_salt_rub);
+            this.groupBox1.Controls.Add(this.label30);
+            this.groupBox1.Controls.Add(this.label31);
+            this.groupBox1.Controls.Add(this.textBox_salt_cop);
+            this.groupBox1.Controls.Add(this.label26);
+            this.groupBox1.Controls.Add(this.textBox_salt_rub);
+            this.groupBox1.Controls.Add(this.label27);
+            this.groupBox1.Controls.Add(this.textBox_spices_rub);
+            this.groupBox1.Controls.Add(this.textBox_spices_cop);
+            this.groupBox1.Controls.Add(this.label25);
+            this.groupBox1.Controls.Add(this.label24);
+            this.groupBox1.Controls.Add(this.textBox_salt);
+            this.groupBox1.Controls.Add(this.textBox_spices);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(20, 379);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1020, 174);
+            this.groupBox1.TabIndex = 118;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "СПРАВКА: Израсходовано на приготовление блюд";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(566, 132);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(53, 21);
+            this.label35.TabIndex = 104;
+            this.label35.Text = "Итого";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Segoe WP", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label32.Location = new System.Drawing.Point(922, 133);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(37, 20);
+            this.label32.TabIndex = 103;
+            this.label32.Text = "коп.";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Segoe WP", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label34.Location = new System.Drawing.Point(795, 133);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(37, 20);
+            this.label34.TabIndex = 102;
+            this.label34.Text = "руб.";
+            // 
+            // textBox_total_spices_salt_cop
+            // 
+            this.textBox_total_spices_salt_cop.Location = new System.Drawing.Point(836, 126);
+            this.textBox_total_spices_salt_cop.Name = "textBox_total_spices_salt_cop";
+            this.textBox_total_spices_salt_cop.ReadOnly = true;
+            this.textBox_total_spices_salt_cop.Size = new System.Drawing.Size(80, 29);
+            this.textBox_total_spices_salt_cop.TabIndex = 101;
+            this.textBox_total_spices_salt_cop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox_total_spices_salt_rub
+            // 
+            this.textBox_total_spices_salt_rub.Location = new System.Drawing.Point(638, 126);
+            this.textBox_total_spices_salt_rub.Name = "textBox_total_spices_salt_rub";
+            this.textBox_total_spices_salt_rub.ReadOnly = true;
+            this.textBox_total_spices_salt_rub.Size = new System.Drawing.Size(150, 29);
+            this.textBox_total_spices_salt_rub.TabIndex = 100;
+            this.textBox_total_spices_salt_rub.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Segoe WP", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label30.Location = new System.Drawing.Point(922, 89);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(37, 20);
+            this.label30.TabIndex = 99;
+            this.label30.Text = "коп.";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Segoe WP", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label31.Location = new System.Drawing.Point(795, 89);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(37, 20);
+            this.label31.TabIndex = 98;
+            this.label31.Text = "руб.";
+            // 
+            // textBox_salt_cop
+            // 
+            this.textBox_salt_cop.Location = new System.Drawing.Point(836, 82);
+            this.textBox_salt_cop.Name = "textBox_salt_cop";
+            this.textBox_salt_cop.ReadOnly = true;
+            this.textBox_salt_cop.Size = new System.Drawing.Size(80, 29);
+            this.textBox_salt_cop.TabIndex = 97;
+            this.textBox_salt_cop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Segoe WP", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label26.Location = new System.Drawing.Point(921, 45);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(37, 20);
+            this.label26.TabIndex = 93;
+            this.label26.Text = "коп.";
+            // 
+            // textBox_salt_rub
+            // 
+            this.textBox_salt_rub.Location = new System.Drawing.Point(638, 82);
+            this.textBox_salt_rub.Name = "textBox_salt_rub";
+            this.textBox_salt_rub.ReadOnly = true;
+            this.textBox_salt_rub.Size = new System.Drawing.Size(150, 29);
+            this.textBox_salt_rub.TabIndex = 96;
+            this.textBox_salt_rub.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Segoe WP", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label27.Location = new System.Drawing.Point(794, 45);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(37, 20);
+            this.label27.TabIndex = 92;
+            this.label27.Text = "руб.";
+            // 
+            // textBox_spices_rub
+            // 
+            this.textBox_spices_rub.Location = new System.Drawing.Point(638, 38);
+            this.textBox_spices_rub.Name = "textBox_spices_rub";
+            this.textBox_spices_rub.ReadOnly = true;
+            this.textBox_spices_rub.Size = new System.Drawing.Size(150, 29);
+            this.textBox_spices_rub.TabIndex = 95;
+            this.textBox_spices_rub.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox_spices_cop
+            // 
+            this.textBox_spices_cop.Location = new System.Drawing.Point(835, 38);
+            this.textBox_spices_cop.Name = "textBox_spices_cop";
+            this.textBox_spices_cop.ReadOnly = true;
+            this.textBox_spices_cop.Size = new System.Drawing.Size(80, 29);
+            this.textBox_spices_cop.TabIndex = 91;
+            this.textBox_spices_cop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(268, 82);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(169, 21);
+            this.label25.TabIndex = 94;
+            this.label25.Text = "% к обороту на сумму";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(268, 41);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(169, 21);
+            this.label24.TabIndex = 93;
+            this.label24.Text = "% к обороту на сумму";
+            // 
+            // textBox_salt
+            // 
+            this.textBox_salt.Location = new System.Drawing.Point(112, 79);
+            this.textBox_salt.Name = "textBox_salt";
+            this.textBox_salt.Size = new System.Drawing.Size(150, 29);
+            this.textBox_salt.TabIndex = 10;
+            this.textBox_salt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox_spices
+            // 
+            this.textBox_spices.Location = new System.Drawing.Point(112, 38);
+            this.textBox_spices.Name = "textBox_spices";
+            this.textBox_spices.Size = new System.Drawing.Size(150, 29);
+            this.textBox_spices.TabIndex = 9;
+            this.textBox_spices.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(60, 82);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 21);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Соли";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(41, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 21);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Специй";
             // 
             // label23
             // 
@@ -497,6 +700,9 @@ namespace Catering_OP_6 {
             this.dataGridView_DocData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView_DocData.Size = new System.Drawing.Size(1055, 201);
             this.dataGridView_DocData.TabIndex = 96;
+            this.dataGridView_DocData.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DocData_CellValueChanged);
+            this.dataGridView_DocData.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_DocData_EditingControlShowing);
+            this.dataGridView_DocData.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridView_DocData_RowPrePaint);
             // 
             // Column2
             // 
@@ -527,7 +733,6 @@ namespace Catering_OP_6 {
             // 
             this.Column4.HeaderText = "Код";
             this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
             this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Column4.Width = 84;
             // 
@@ -583,7 +788,7 @@ namespace Catering_OP_6 {
             this.ToolStripMenuItem_File});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1084, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1074, 24);
             this.menuStrip1.TabIndex = 89;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -658,6 +863,15 @@ namespace Catering_OP_6 {
             this.ComboBox_Organization.Size = new System.Drawing.Size(356, 29);
             this.ComboBox_Organization.TabIndex = 3;
             // 
+            // comboBox_StructPodrazd
+            // 
+            this.comboBox_StructPodrazd.FormattingEnabled = true;
+            this.comboBox_StructPodrazd.Location = new System.Drawing.Point(224, 108);
+            this.comboBox_StructPodrazd.Name = "comboBox_StructPodrazd";
+            this.comboBox_StructPodrazd.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.comboBox_StructPodrazd.Size = new System.Drawing.Size(356, 29);
+            this.comboBox_StructPodrazd.TabIndex = 4;
+            // 
             // TextBox_TotalSumRubInWords
             // 
             this.TextBox_TotalSumRubInWords.Font = new System.Drawing.Font("Segoe WP", 12F, System.Drawing.FontStyle.Italic);
@@ -686,7 +900,7 @@ namespace Catering_OP_6 {
             // 
             this.TextBox_OperationType.Font = new System.Drawing.Font("Segoe WP", 12F, System.Drawing.FontStyle.Italic);
             this.TextBox_OperationType.ForeColor = System.Drawing.Color.Gray;
-            this.TextBox_OperationType.Location = new System.Drawing.Point(921, 135);
+            this.TextBox_OperationType.Location = new System.Drawing.Point(914, 135);
             this.TextBox_OperationType.Name = "TextBox_OperationType";
             this.TextBox_OperationType.PlaceHolderText = "вид операции";
             this.TextBox_OperationType.Size = new System.Drawing.Size(150, 29);
@@ -698,7 +912,7 @@ namespace Catering_OP_6 {
             // 
             this.TextBox_ActivityOKDP.Font = new System.Drawing.Font("Segoe WP", 12F, System.Drawing.FontStyle.Italic);
             this.TextBox_ActivityOKDP.ForeColor = System.Drawing.Color.Gray;
-            this.TextBox_ActivityOKDP.Location = new System.Drawing.Point(921, 99);
+            this.TextBox_ActivityOKDP.Location = new System.Drawing.Point(914, 99);
             this.TextBox_ActivityOKDP.Name = "TextBox_ActivityOKDP";
             this.TextBox_ActivityOKDP.PlaceHolderText = "вид деятельности";
             this.TextBox_ActivityOKDP.Size = new System.Drawing.Size(150, 29);
@@ -710,7 +924,7 @@ namespace Catering_OP_6 {
             // 
             this.TextBox_FormOKPO.Font = new System.Drawing.Font("Segoe WP", 12F, System.Drawing.FontStyle.Italic);
             this.TextBox_FormOKPO.ForeColor = System.Drawing.Color.Gray;
-            this.TextBox_FormOKPO.Location = new System.Drawing.Point(921, 62);
+            this.TextBox_FormOKPO.Location = new System.Drawing.Point(914, 62);
             this.TextBox_FormOKPO.Name = "TextBox_FormOKPO";
             this.TextBox_FormOKPO.PlaceHolderText = "форма по ОКПО";
             this.TextBox_FormOKPO.Size = new System.Drawing.Size(150, 29);
@@ -718,223 +932,11 @@ namespace Catering_OP_6 {
             this.TextBox_FormOKPO.Text = "форма по ОКПО";
             this.TextBox_FormOKPO.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // comboBox_StructPodrazd
-            // 
-            this.comboBox_StructPodrazd.FormattingEnabled = true;
-            this.comboBox_StructPodrazd.Location = new System.Drawing.Point(224, 108);
-            this.comboBox_StructPodrazd.Name = "comboBox_StructPodrazd";
-            this.comboBox_StructPodrazd.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.comboBox_StructPodrazd.Size = new System.Drawing.Size(356, 29);
-            this.comboBox_StructPodrazd.TabIndex = 4;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label35);
-            this.groupBox1.Controls.Add(this.label32);
-            this.groupBox1.Controls.Add(this.label34);
-            this.groupBox1.Controls.Add(this.textBox_total_spices_salt_cop);
-            this.groupBox1.Controls.Add(this.textBox_total_spices_salt_rub);
-            this.groupBox1.Controls.Add(this.label30);
-            this.groupBox1.Controls.Add(this.label31);
-            this.groupBox1.Controls.Add(this.textBox_salt_cop);
-            this.groupBox1.Controls.Add(this.label26);
-            this.groupBox1.Controls.Add(this.textBox_salt_rub);
-            this.groupBox1.Controls.Add(this.label27);
-            this.groupBox1.Controls.Add(this.textBox_spices_rub);
-            this.groupBox1.Controls.Add(this.textBox_spices_cop);
-            this.groupBox1.Controls.Add(this.label25);
-            this.groupBox1.Controls.Add(this.label24);
-            this.groupBox1.Controls.Add(this.textBox_salt);
-            this.groupBox1.Controls.Add(this.textBox_spices);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(20, 379);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1020, 174);
-            this.groupBox1.TabIndex = 118;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "СПРАВКА: Израсходовано на приготовление блюд";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 21);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Специй";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(60, 82);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 21);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Соли";
-            // 
-            // textBox_spices
-            // 
-            this.textBox_spices.Location = new System.Drawing.Point(112, 38);
-            this.textBox_spices.Name = "textBox_spices";
-            this.textBox_spices.Size = new System.Drawing.Size(150, 29);
-            this.textBox_spices.TabIndex = 9;
-            this.textBox_spices.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox_salt
-            // 
-            this.textBox_salt.Location = new System.Drawing.Point(112, 79);
-            this.textBox_salt.Name = "textBox_salt";
-            this.textBox_salt.Size = new System.Drawing.Size(150, 29);
-            this.textBox_salt.TabIndex = 10;
-            this.textBox_salt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(268, 41);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(169, 21);
-            this.label24.TabIndex = 93;
-            this.label24.Text = "% к обороту на сумму";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(268, 82);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(169, 21);
-            this.label25.TabIndex = 94;
-            this.label25.Text = "% к обороту на сумму";
-            // 
-            // textBox_salt_rub
-            // 
-            this.textBox_salt_rub.Location = new System.Drawing.Point(638, 82);
-            this.textBox_salt_rub.Name = "textBox_salt_rub";
-            this.textBox_salt_rub.ReadOnly = true;
-            this.textBox_salt_rub.Size = new System.Drawing.Size(150, 29);
-            this.textBox_salt_rub.TabIndex = 96;
-            this.textBox_salt_rub.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox_spices_rub
-            // 
-            this.textBox_spices_rub.Location = new System.Drawing.Point(638, 38);
-            this.textBox_spices_rub.Name = "textBox_spices_rub";
-            this.textBox_spices_rub.ReadOnly = true;
-            this.textBox_spices_rub.Size = new System.Drawing.Size(150, 29);
-            this.textBox_spices_rub.TabIndex = 95;
-            this.textBox_spices_rub.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Segoe WP", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label26.Location = new System.Drawing.Point(921, 45);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(37, 20);
-            this.label26.TabIndex = 93;
-            this.label26.Text = "коп.";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Segoe WP", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label27.Location = new System.Drawing.Point(794, 45);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(37, 20);
-            this.label27.TabIndex = 92;
-            this.label27.Text = "руб.";
-            // 
-            // textBox_spices_cop
-            // 
-            this.textBox_spices_cop.Location = new System.Drawing.Point(835, 38);
-            this.textBox_spices_cop.Name = "textBox_spices_cop";
-            this.textBox_spices_cop.ReadOnly = true;
-            this.textBox_spices_cop.Size = new System.Drawing.Size(80, 29);
-            this.textBox_spices_cop.TabIndex = 91;
-            this.textBox_spices_cop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Segoe WP", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label30.Location = new System.Drawing.Point(922, 89);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(37, 20);
-            this.label30.TabIndex = 99;
-            this.label30.Text = "коп.";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Segoe WP", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label31.Location = new System.Drawing.Point(795, 89);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(37, 20);
-            this.label31.TabIndex = 98;
-            this.label31.Text = "руб.";
-            // 
-            // textBox_salt_cop
-            // 
-            this.textBox_salt_cop.Location = new System.Drawing.Point(836, 82);
-            this.textBox_salt_cop.Name = "textBox_salt_cop";
-            this.textBox_salt_cop.ReadOnly = true;
-            this.textBox_salt_cop.Size = new System.Drawing.Size(80, 29);
-            this.textBox_salt_cop.TabIndex = 97;
-            this.textBox_salt_cop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Segoe WP", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label32.Location = new System.Drawing.Point(922, 133);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(37, 20);
-            this.label32.TabIndex = 103;
-            this.label32.Text = "коп.";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Segoe WP", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label34.Location = new System.Drawing.Point(795, 133);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(37, 20);
-            this.label34.TabIndex = 102;
-            this.label34.Text = "руб.";
-            // 
-            // textBox_total_spices_salt_cop
-            // 
-            this.textBox_total_spices_salt_cop.Location = new System.Drawing.Point(836, 126);
-            this.textBox_total_spices_salt_cop.Name = "textBox_total_spices_salt_cop";
-            this.textBox_total_spices_salt_cop.ReadOnly = true;
-            this.textBox_total_spices_salt_cop.Size = new System.Drawing.Size(80, 29);
-            this.textBox_total_spices_salt_cop.TabIndex = 101;
-            this.textBox_total_spices_salt_cop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox_total_spices_salt_rub
-            // 
-            this.textBox_total_spices_salt_rub.Location = new System.Drawing.Point(638, 126);
-            this.textBox_total_spices_salt_rub.Name = "textBox_total_spices_salt_rub";
-            this.textBox_total_spices_salt_rub.ReadOnly = true;
-            this.textBox_total_spices_salt_rub.Size = new System.Drawing.Size(150, 29);
-            this.textBox_total_spices_salt_rub.TabIndex = 100;
-            this.textBox_total_spices_salt_rub.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(566, 132);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(53, 21);
-            this.label35.TabIndex = 104;
-            this.label35.Text = "Итого";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1084, 827);
+            this.ClientSize = new System.Drawing.Size(1074, 827);
             this.Controls.Add(this.comboBox_StructPodrazd);
             this.Controls.Add(this.ComboBox_Organization);
             this.Controls.Add(this.Link_ResponsiblePersons);
@@ -967,11 +969,11 @@ namespace Catering_OP_6 {
             this.Text = "ОП-12 Акт о реализации готовых изделий кухни за наличный расчет";
             this.panel_table.ResumeLayout(false);
             this.panel_table.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DocData)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1027,16 +1029,6 @@ namespace Catering_OP_6 {
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewComboBoxColumn ColumnMeasurmentUnitsName;
-        private System.Windows.Forms.DataGridViewComboBoxColumn ColumnProductsName;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
         private System.Windows.Forms.ComboBox comboBox_StructPodrazd;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label35;
@@ -1058,6 +1050,16 @@ namespace Catering_OP_6 {
         private System.Windows.Forms.TextBox textBox_spices;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ColumnMeasurmentUnitsName;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ColumnProductsName;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
     }
 }
 

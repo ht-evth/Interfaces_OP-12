@@ -11,7 +11,8 @@ using Excel = Microsoft.Office.Interop.Excel;
 using System.IO;
 
 namespace Catering_OP_6 {
-	public partial class MainForm : Form {
+	public partial class MainForm : Form
+	{
 
 		private int maxRowsFirstTableInExcel = 11;
 		private int maxRowsSecondTableInExcel = 15;
@@ -71,7 +72,8 @@ namespace Catering_OP_6 {
 		};
 
 
-		public MainForm() {
+		public MainForm()
+		{
 			// инициализация формы со всеми объектами
 			InitializeComponent();
 
@@ -112,12 +114,15 @@ namespace Catering_OP_6 {
 			foreach (var item in productsCode) columnCode.Items.Add(item);
 
 
+
+
 			// выпадашка "организации" и структурное подразделение
 			foreach (var item in organiztions) ComboBox_Organization.Items.Add(item);
 			foreach (var item in structPodrazd) comboBox_StructPodrazd.Items.Add(item);
 		}
 
-		private void Link_ResponsiblePersons_Click(object sender, LinkLabelLinkClickedEventArgs e) {
+		private void Link_ResponsiblePersons_Click(object sender, LinkLabelLinkClickedEventArgs e)
+		{
 			if (personsForm.Visible) personsForm.Hide(); else personsForm.Show();
 		}
 
@@ -299,99 +304,110 @@ namespace Catering_OP_6 {
 			
 		}
 
+		*/
 
 
+		private void dataGridView_DocData_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e) 
+		{
 
-		private void dataGridView_DocData_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e) {
-
-			if (dataGridView_DocData.CurrentCell.ColumnIndex == 0) {
+			if (dataGridView_DocData.CurrentCell.ColumnIndex >= 1 && dataGridView_DocData.CurrentCell.ColumnIndex <= 3)
+			{
 				ComboBox combo = e.Control as ComboBox;
 				combo.SelectedIndexChanged -= new EventHandler(Control_Changed);
 				combo.SelectedIndexChanged += new EventHandler(Control_Changed);
 			}
+			else if (dataGridView_DocData.CurrentCell.ColumnIndex == 4)
+            {
+				TextBox tb = (TextBox)e.Control;
+				tb.KeyPress += new KeyPressEventHandler(tb_KeyPress);
 
-			/*if (dataGridView_DocData.CurrentCell.ColumnIndex >= 4 && dataGridView_DocData.CurrentCell.ColumnIndex <= 10) {
-				TextBox tb = e.Control as TextBox;
-				tb.KeyPress -= new KeyPressEventHandler(TB_KeyPress);
-				tb.KeyPress += new KeyPressEventHandler(TB_KeyPress);
-			}*/
+			}
+
 		}
 
-		/*private void TB_KeyPress(object sender, KeyPressEventArgs e) {
-			if ((!Char.IsNumber(e.KeyChar) && (e.KeyChar != '-') && (e.KeyChar != ','))) {
-				if ((e.KeyChar != (char)Keys.Back) || (e.KeyChar != (char)Keys.Delete)) { e.Handled = true; }
+		void tb_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if (!(Char.IsDigit(e.KeyChar)))
+			{
+				if (e.KeyChar != (char)Keys.Back)
+				{ e.Handled = true; }
 			}
-		}*/
+		}
 
 
-
-
-
-	/*
-
-
-		private void Control_Changed(object sender, System.EventArgs e) {
+		private void Control_Changed(object sender, System.EventArgs e)
+		{
 			// загрузка в столбцы информации связанной с выбором в выпадашках таблицы
 
 			int col = dataGridView_DocData.CurrentCell.ColumnIndex;
+			
 
-			// выбор в Наименование продукта - столбец 0
-			if (col == 0) {
+			if (col >= 1 && col <= 3)
+            {
 				int i = ((ComboBox)sender).SelectedIndex;
+				if (col == 1)
+                {
+					// выбрали карту
+					// заменяем имя
+					dataGridView_DocData.CurrentRow.Cells[2].Value = productsName[i];
 
-				// код продукта - столбец 1
-				dataGridView_DocData.CurrentRow.Cells[1].Value = productsCode[i];
+					// заменяем код
+					dataGridView_DocData.CurrentRow.Cells[3].Value = productsCode[i];
+				}
+				else if (col == 2)
+                {
+					//выбрали имя
+					// заменяем карту
+					dataGridView_DocData.CurrentRow.Cells[1].Value = cardNumber[i];
 
-				// учетная цена за штуку - столбец 12
-				dataGridView_DocData.CurrentRow.Cells[12].Value = productsDiscountPricePerOne[i];
+					// заменяем код
+					dataGridView_DocData.CurrentRow.Cells[3].Value = productsCode[i];
+				}
+				else
+				{
+					//выбрали код
+					// заменяем карту
+					dataGridView_DocData.CurrentRow.Cells[1].Value = cardNumber[i];
 
-				// цена продажи за штуку - столбец 14
-				dataGridView_DocData.CurrentRow.Cells[14].Value = productsSellingPricePerOne[i];
+					// заменяем имя
+					dataGridView_DocData.CurrentRow.Cells[2].Value = productsName[i];
+				}
+
+				// факт цена за единицу
+				dataGridView_DocData.CurrentRow.Cells[5].Value = factPrice[i];
+
+				// произв. цена за единицу
+				dataGridView_DocData.CurrentRow.Cells[7].Value = recordPrice[i];
 
 				ReCountRow(dataGridView_DocData.CurrentRow.Index);
-				
+
 			}
 
-			// выбор в Наименование единицы измерения - столбец 2
-			if (col == 2) {
-				int i = ((ComboBox)sender).SelectedIndex;
-
-				// код по ОКЕИ - столбец 3
-				dataGridView_DocData.CurrentRow.Cells[3].Value = measurmentUnitsCode[i];
-			}
 		}
 
-		private void dataGridView_DocData_CellValueChanged(object sender, DataGridViewCellEventArgs e) {
+		private void dataGridView_DocData_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+		{
 			// при изменении значения в таблице в определенных столбцах делать пересчет значений
 
 			if (e.RowIndex == -1) return;
 
-			if (e.ColumnIndex == 0 || (e.ColumnIndex >= 4 && e.ColumnIndex <= 10)) {
+			if (e.ColumnIndex >= 1 && e.ColumnIndex <= 4)
+			{
 				ReCountRow(e.RowIndex);
 			}
 		}
 
+
+        
 		private void ReCountRow(int row) {
-			// посчитать "количество" (столбец 11) в текущей строке
 
 			// если будет ошибка - например ввели букву, то проставить минусы
 			// чтоб прога не вылетела
 			try {
 
-				// сумма значений для "отпущено продукции" по 6 столбцам по времени
-				double res = 0;
-				for (int i = 4; i < 10; i++)
-					res += Convert.ToDouble(dataGridView_DocData[i, row].Value);
-
-				// вычесть "возваращено продукции"
-				res -= Convert.ToDouble(dataGridView_DocData[10, row].Value);
-
-				// вывести посчитанное значение в столбец "количество"
-				dataGridView_DocData[11, row].Value = res.ToString();
-
 				// суммы исходя из прайса и количества
-				dataGridView_DocData[13, row].Value = (Convert.ToDouble(dataGridView_DocData[12, row].Value) * Convert.ToDouble(dataGridView_DocData[11, row].Value)).ToString();
-				dataGridView_DocData[15, row].Value = (Convert.ToDouble(dataGridView_DocData[14, row].Value) * Convert.ToDouble(dataGridView_DocData[11, row].Value)).ToString();
+				dataGridView_DocData[6, row].Value = (Convert.ToDouble(dataGridView_DocData[5, row].Value) * Convert.ToDouble(dataGridView_DocData[4, row].Value)).ToString();
+				dataGridView_DocData[8, row].Value = (Convert.ToDouble(dataGridView_DocData[7, row].Value) * Convert.ToDouble(dataGridView_DocData[4, row].Value)).ToString();
 
 				// пересчитать для текстбоксов "итог" под таблицей
 				ReCountTotal();
@@ -402,68 +418,56 @@ namespace Catering_OP_6 {
 
 				// в данных столбцах нельзя вывести нормальное значение
 				// заменяем минусами
-				dataGridView_DocData[11, row].Value = "-";
-				dataGridView_DocData[13, row].Value = "-";
-				dataGridView_DocData[15, row].Value = "-";
+				dataGridView_DocData[6, row].Value = "-";
+				dataGridView_DocData[8, row].Value = "-";
+
 			}
 		}
 
+
+		
 		private void ReCountTotal() {
 			// посчитать значения для строки "итого"
 
 			try {
 				int numRows = dataGridView_DocData.Rows.Count;
 
-				double totalAmountLeaveTime_1 = 0,
-					totalAmountLeaveTime_2 = 0,
-					totalAmountLeaveTime_3 = 0,
-					totalAmountLeaveTime_4 = 0,
-					totalAmountLeaveTime_5 = 0,
-					totalAmountLeaveTime_6 = 0,
-					TotalProductsReturned = 0,
-					TotalProductsLeavedWithoutReturned = 0,
-					TotalSum_DiscountPrice = 0,
-					TotalSum_SellingPrice = 0;
+				double TotalSum_Fact= 0, TotalSum_Record = 0, Total_Amount = 0;
 
 				// суммируем во всех строках таблицы нужные значения
-				for (int i = 0; i < numRows; i++) {
-
-					totalAmountLeaveTime_1 += Convert.ToDouble(dataGridView_DocData[4, i].Value);
-					totalAmountLeaveTime_2 += Convert.ToDouble(dataGridView_DocData[5, i].Value);
-					totalAmountLeaveTime_3 += Convert.ToDouble(dataGridView_DocData[6, i].Value);
-					totalAmountLeaveTime_4 += Convert.ToDouble(dataGridView_DocData[7, i].Value);
-					totalAmountLeaveTime_5 += Convert.ToDouble(dataGridView_DocData[8, i].Value);
-					totalAmountLeaveTime_6 += Convert.ToDouble(dataGridView_DocData[9, i].Value);
-					TotalProductsReturned += Convert.ToDouble(dataGridView_DocData[10, i].Value);
-					TotalProductsLeavedWithoutReturned += Convert.ToDouble(dataGridView_DocData[11, i].Value);
-					TotalSum_DiscountPrice += Convert.ToDouble(dataGridView_DocData[13, i].Value);
-					TotalSum_SellingPrice += Convert.ToDouble(dataGridView_DocData[15, i].Value);
+				for (int i = 0; i < numRows; i++)
+				{
+					Total_Amount += Convert.ToInt32(dataGridView_DocData[4, i].Value);
+					TotalSum_Fact += Convert.ToDouble(dataGridView_DocData[6, i].Value);
+					TotalSum_Record += Convert.ToDouble(dataGridView_DocData[8, i].Value);				
 				}
 
 				// выводим в текстбоксы под таблицей в "итог"
-				TextBox_TotalAmount.Text = totalAmountLeaveTime_1.ToString();
-				TextBox_TotalAmountLeaveTime_2.Text = totalAmountLeaveTime_2.ToString();
-				TextBox_TotalFactSum.Text = totalAmountLeaveTime_3.ToString();
-				TextBox_TotalAmountLeaveTime_4.Text = totalAmountLeaveTime_4.ToString();
-				TextBox_TotalRecordSum.Text = totalAmountLeaveTime_5.ToString();
-				TextBox_TotalAmountLeaveTime_6.Text = totalAmountLeaveTime_6.ToString();
-				TextBox_TotalProductsReturned.Text = TotalProductsReturned.ToString();
-				TextBox_TotalProductsLeavedWithoutReturned.Text = TotalProductsLeavedWithoutReturned.ToString();
-				TextBox_TotalSum_DiscountPrice.Text = TotalSum_DiscountPrice.ToString();
-				TextBox_TotalSum_SellingPrice.Text = TotalSum_SellingPrice.ToString();
-
-				// функция чтоб вывести в текстбоксы словами значения
+				TextBox_TotalAmount.Text = Total_Amount.ToString();
+				TextBox_TotalFactSum.Text = TotalSum_Fact.ToString();
+				TextBox_TotalRecordSum.Text = TotalSum_Record.ToString();
+				
+				// функция чтобы вывести в текстбоксы словами значения
 				TotalValuesToTextBoxes(TotalProductsLeavedWithoutReturned, TotalSum_SellingPrice);
 			}
-			catch (Exception e) {
+			catch (Exception e) 
+			{
 				MessageBox.Show(e.Message);
 			}
 		}
 
+        private void dataGridView_DocData_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+			int index = e.RowIndex;
+			string indexStr = (index + 1).ToString();
+			this.dataGridView_DocData.Rows[index].Cells[0].Value = indexStr;
+		}
+
+
 		private void TotalValuesToTextBoxes(double quantity, double sum) {
 			// отключить плейсхолдера
 			// вывести значение переведенное в строку
-			TextBox_TotalQuantityInWords.removePlaceHolder();
+			TextBox_TotalSumRubInWords.removePlaceHolder();
 			TextBox_TotalQuantityInWords.Text = NumToWord.Translate(quantity);
 
 			// отключить плейсхолдера
@@ -475,179 +479,180 @@ namespace Catering_OP_6 {
 			TextBox_TotalSumKopek.Text = (Math.Round( 100 * (sum - Math.Floor(sum)))).ToString();
 		}
 
-		private bool CheckData(List<string> posts, List<string> fullNames, List<RowInTable> rows) {
+			private bool CheckData(List<string> posts, List<string> fullNames, List<RowInTable> rows) {
 
-			// посчитать кол-во пустых полей
-			// их наименования
-			// через messagebox узнать у пользователя
+				// посчитать кол-во пустых полей
+				// их наименования
+				// через messagebox узнать у пользователя
 
-			int numWarnings = 0;
-			string warnings = "Не были заполнены следующие поля:\r\n";
+				int numWarnings = 0;
+				string warnings = "Не были заполнены следующие поля:\r\n";
 
-			void Checking(string text, string warning) {
-				if (string.IsNullOrEmpty(text)) { warnings += (warning + "\r\n"); numWarnings++; }
-			}
-
-			Checking(TextBox_DocNum.Text, "Номер документ");
-			
-			Checking(TextBox_FormOKPO.Text, "Форма ОКПО");
-			Checking(TextBox_ActivityOKDP.Text, "Вид деятельности по ОКДП");
-			Checking(TextBox_OperationType.Text, "Вид операции");
-
-			Checking(TextBox_Sender.Text, "Структурное подразделение «отправитель»");
-			//Checking(TextBox_Recipient.Text, "Структурное подразделение «получатель»");
-
-			Checking(TextBox_TotalQuantityInWords.Text, "Количество прописью");
-			Checking(TextBox_TotalSumRubInWords.Text, "Сумма прописью");
-
-			Checking(posts[0], "Мат. ответств. лицо - должность");
-			Checking(posts[1], "Руководитель - должность");
-			Checking(posts[2], "Отпустил - должность");
-			Checking(posts[3], "Принял - должность");
-			Checking(posts[4], "Проверил - должность");
-
-			Checking(fullNames[0], "Мат. ответств. лицо - ФИО");
-			Checking(fullNames[1], "Руководитель - ФИО");
-			Checking(fullNames[2], "Главный (старший) бухгалтер - ФИО");
-			Checking(fullNames[3], "Отпустил - ФИО");
-			Checking(fullNames[4], "Принял - ФИО");
-			Checking(fullNames[5], "Проверил - ФИО");
-
-			if (rows.Count > totalRowsTwoTablesInExcel) { warnings += "Количество строк в таблице больше 26. Будет записано только 26 строк.\r\n"; numWarnings++; }
-
-			if (numWarnings > 0) {
-				warnings += "\r\nВсего предупреждений: " + numWarnings + ". Продолжить?";
-
-				DialogResult dialogResult = MessageBox.Show( warnings, "Предупреждение", MessageBoxButtons.YesNo);
-				if (dialogResult == DialogResult.Yes) {
-					return true;
+				void Checking(string text, string warning) {
+					if (string.IsNullOrEmpty(text)) { warnings += (warning + "\r\n"); numWarnings++; }
 				}
-				else if (dialogResult == DialogResult.No) {
-					return false;
+
+				Checking(TextBox_DocNum.Text, "Номер документ");
+
+				Checking(TextBox_FormOKPO.Text, "Форма ОКПО");
+				Checking(TextBox_ActivityOKDP.Text, "Вид деятельности по ОКДП");
+				Checking(TextBox_OperationType.Text, "Вид операции");
+
+				Checking(TextBox_Sender.Text, "Структурное подразделение «отправитель»");
+				//Checking(TextBox_Recipient.Text, "Структурное подразделение «получатель»");
+
+				Checking(TextBox_TotalQuantityInWords.Text, "Количество прописью");
+				Checking(TextBox_TotalSumRubInWords.Text, "Сумма прописью");
+
+				Checking(posts[0], "Мат. ответств. лицо - должность");
+				Checking(posts[1], "Руководитель - должность");
+				Checking(posts[2], "Отпустил - должность");
+				Checking(posts[3], "Принял - должность");
+				Checking(posts[4], "Проверил - должность");
+
+				Checking(fullNames[0], "Мат. ответств. лицо - ФИО");
+				Checking(fullNames[1], "Руководитель - ФИО");
+				Checking(fullNames[2], "Главный (старший) бухгалтер - ФИО");
+				Checking(fullNames[3], "Отпустил - ФИО");
+				Checking(fullNames[4], "Принял - ФИО");
+				Checking(fullNames[5], "Проверил - ФИО");
+
+				if (rows.Count > totalRowsTwoTablesInExcel) { warnings += "Количество строк в таблице больше 26. Будет записано только 26 строк.\r\n"; numWarnings++; }
+
+				if (numWarnings > 0) {
+					warnings += "\r\nВсего предупреждений: " + numWarnings + ". Продолжить?";
+
+					DialogResult dialogResult = MessageBox.Show( warnings, "Предупреждение", MessageBoxButtons.YesNo);
+					if (dialogResult == DialogResult.Yes) {
+						return true;
+					}
+					else if (dialogResult == DialogResult.No) {
+						return false;
+					}
 				}
+
+				// по дефолту - все ок
+				return true;
 			}
 
-			// по дефолту - все ок
-			return true;
-		}
+			private List<RowInTable> GetAllRows() {
+				// получить список всех строк таблицы формы
 
-		private List<RowInTable> GetAllRows() {
-			// получить список всех строк таблицы формы
+				List<RowInTable> res = new List<RowInTable>();
 
-			List<RowInTable> res = new List<RowInTable>();
+				int numRows = dataGridView_DocData.Rows.Count;
+				for (int i = 0; i < numRows; i++) {
+					RowInTable curRow = new RowInTable();
+					curRow.productName = Convert.ToString(dataGridView_DocData[0, i].Value);
+					curRow.productCode = Convert.ToString(dataGridView_DocData[1, i].Value);
 
-			int numRows = dataGridView_DocData.Rows.Count;
-			for (int i = 0; i < numRows; i++) {
-				RowInTable curRow = new RowInTable();
-				curRow.productName = Convert.ToString(dataGridView_DocData[0, i].Value);
-				curRow.productCode = Convert.ToString(dataGridView_DocData[1, i].Value);
+					curRow.measurmentUnitName = Convert.ToString(dataGridView_DocData[2, i].Value);
+					curRow.measurmentUnitCode = Convert.ToString(dataGridView_DocData[3, i].Value);
 
-				curRow.measurmentUnitName = Convert.ToString(dataGridView_DocData[2, i].Value);
-				curRow.measurmentUnitCode = Convert.ToString(dataGridView_DocData[3, i].Value);
+					curRow.leaveTime_1 = Convert.ToString(dataGridView_DocData[4, i].Value);
+					curRow.leaveTime_2 = Convert.ToString(dataGridView_DocData[5, i].Value); 
+					curRow.leaveTime_3 = Convert.ToString(dataGridView_DocData[6, i].Value);
+					curRow.leaveTime_4 = Convert.ToString(dataGridView_DocData[7, i].Value);
+					curRow.leaveTime_5 = Convert.ToString(dataGridView_DocData[8, i].Value);
+					curRow.leaveTime_6 = Convert.ToString(dataGridView_DocData[9, i].Value);
 
-				curRow.leaveTime_1 = Convert.ToString(dataGridView_DocData[4, i].Value);
-				curRow.leaveTime_2 = Convert.ToString(dataGridView_DocData[5, i].Value); 
-				curRow.leaveTime_3 = Convert.ToString(dataGridView_DocData[6, i].Value);
-				curRow.leaveTime_4 = Convert.ToString(dataGridView_DocData[7, i].Value);
-				curRow.leaveTime_5 = Convert.ToString(dataGridView_DocData[8, i].Value);
-				curRow.leaveTime_6 = Convert.ToString(dataGridView_DocData[9, i].Value);
+					curRow.productReturned = Convert.ToString(dataGridView_DocData[10, i].Value);
+					curRow.productReturnedWithoutLeaving = Convert.ToString(dataGridView_DocData[11, i].Value);
 
-				curRow.productReturned = Convert.ToString(dataGridView_DocData[10, i].Value);
-				curRow.productReturnedWithoutLeaving = Convert.ToString(dataGridView_DocData[11, i].Value);
+					curRow.discountPrice = Convert.ToString(dataGridView_DocData[12, i].Value);
+					curRow.discountPriceSum = Convert.ToString(dataGridView_DocData[13, i].Value);
 
-				curRow.discountPrice = Convert.ToString(dataGridView_DocData[12, i].Value);
-				curRow.discountPriceSum = Convert.ToString(dataGridView_DocData[13, i].Value);
+					curRow.sellingPrice = Convert.ToString(dataGridView_DocData[14, i].Value);
+					curRow.sellingPriceSum = Convert.ToString(dataGridView_DocData[15, i].Value);
 
-				curRow.sellingPrice = Convert.ToString(dataGridView_DocData[14, i].Value);
-				curRow.sellingPriceSum = Convert.ToString(dataGridView_DocData[15, i].Value);
+					curRow.note = Convert.ToString(dataGridView_DocData[16, i].Value);
 
-				curRow.note = Convert.ToString(dataGridView_DocData[16, i].Value);
+					res.Add(curRow);
+				}
 
-				res.Add(curRow);
+				return res;
 			}
 
-			return res;
-		}
 
+			private void FillTableInExcel(Excel.Worksheet wsh, List<RowInTable> rows, int numRows, int startRowIndex, int totalRowIndex, int listShift) {
+				// заполнить таблицу в экселе
 
-		private void FillTableInExcel(Excel.Worksheet wsh, List<RowInTable> rows, int numRows, int startRowIndex, int totalRowIndex, int listShift) {
-			// заполнить таблицу в экселе
+				double[] temp = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
-			double[] temp = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+				// заполнение таблицы и вычисление значений для строки "итого"
+				for (int i = 0; i < numRows; i++) {
+					RowInTable curRow = rows[listShift + i];
 
-			// заполнение таблицы и вычисление значений для строки "итого"
-			for (int i = 0; i < numRows; i++) {
-				RowInTable curRow = rows[listShift + i];
+					wsh.Cells[startRowIndex + i, "A"] = curRow.productName;
+					wsh.Cells[startRowIndex + i, "M"] = curRow.productCode;
 
-				wsh.Cells[startRowIndex + i, "A"] = curRow.productName;
-				wsh.Cells[startRowIndex + i, "M"] = curRow.productCode;
+					wsh.Cells[startRowIndex + i, "Q"] = curRow.measurmentUnitName;
+					wsh.Cells[startRowIndex + i, "U"] = curRow.measurmentUnitCode;
 
-				wsh.Cells[startRowIndex + i, "Q"] = curRow.measurmentUnitName;
-				wsh.Cells[startRowIndex + i, "U"] = curRow.measurmentUnitCode;
+					wsh.Cells[startRowIndex + i, "Y"] = curRow.leaveTime_1;
+					wsh.Cells[startRowIndex + i, "AB"] = curRow.leaveTime_2;
+					wsh.Cells[startRowIndex + i, "AE"] = curRow.leaveTime_3;
+					wsh.Cells[startRowIndex + i, "AH"] = curRow.leaveTime_4;
+					wsh.Cells[startRowIndex + i, "AK"] = curRow.leaveTime_5;
+					wsh.Cells[startRowIndex + i, "AN"] = curRow.leaveTime_6;
 
-				wsh.Cells[startRowIndex + i, "Y"] = curRow.leaveTime_1;
-				wsh.Cells[startRowIndex + i, "AB"] = curRow.leaveTime_2;
-				wsh.Cells[startRowIndex + i, "AE"] = curRow.leaveTime_3;
-				wsh.Cells[startRowIndex + i, "AH"] = curRow.leaveTime_4;
-				wsh.Cells[startRowIndex + i, "AK"] = curRow.leaveTime_5;
-				wsh.Cells[startRowIndex + i, "AN"] = curRow.leaveTime_6;
+					wsh.Cells[startRowIndex + i, "AQ"] = curRow.productReturned;
+					wsh.Cells[startRowIndex + i, "AV"] = curRow.productReturnedWithoutLeaving;
 
-				wsh.Cells[startRowIndex + i, "AQ"] = curRow.productReturned;
-				wsh.Cells[startRowIndex + i, "AV"] = curRow.productReturnedWithoutLeaving;
+					wsh.Cells[startRowIndex + i, "AZ"] = curRow.discountPrice;
+					wsh.Cells[startRowIndex + i, "BE"] = curRow.discountPriceSum;
 
-				wsh.Cells[startRowIndex + i, "AZ"] = curRow.discountPrice;
-				wsh.Cells[startRowIndex + i, "BE"] = curRow.discountPriceSum;
+					wsh.Cells[startRowIndex + i, "BJ"] = curRow.sellingPrice;
+					wsh.Cells[startRowIndex + i, "BO"] = curRow.sellingPriceSum;
 
-				wsh.Cells[startRowIndex + i, "BJ"] = curRow.sellingPrice;
-				wsh.Cells[startRowIndex + i, "BO"] = curRow.sellingPriceSum;
+					wsh.Cells[startRowIndex + i, "BT"] = curRow.note;
 
-				wsh.Cells[startRowIndex + i, "BT"] = curRow.note;
+					temp[0] += (curRow.leaveTime_1 == string.Empty ? 0.0 : Convert.ToDouble(curRow.leaveTime_1));
+					temp[1] += (curRow.leaveTime_2 == string.Empty ? 0.0 : Convert.ToDouble(curRow.leaveTime_2));
+					temp[2] += (curRow.leaveTime_3 == string.Empty ? 0.0 : Convert.ToDouble(curRow.leaveTime_3));
+					temp[3] += (curRow.leaveTime_4 == string.Empty ? 0.0 : Convert.ToDouble(curRow.leaveTime_4));
+					temp[4] += (curRow.leaveTime_5 == string.Empty ? 0.0 : Convert.ToDouble(curRow.leaveTime_5));
+					temp[5] += (curRow.leaveTime_6 == string.Empty ? 0.0 : Convert.ToDouble(curRow.leaveTime_6));
+					temp[6] += (curRow.productReturned == string.Empty ? 0.0 : Convert.ToDouble(curRow.productReturned));
+					temp[7] += (curRow.productReturnedWithoutLeaving == string.Empty ? 0.0 : Convert.ToDouble(curRow.productReturnedWithoutLeaving));
+					temp[8] += (curRow.discountPriceSum == string.Empty ? 0.0 : Convert.ToDouble(curRow.discountPriceSum));
+					temp[9] += (curRow.sellingPriceSum == string.Empty ? 0.0 : Convert.ToDouble(curRow.sellingPriceSum));
+				}
 
-				temp[0] += (curRow.leaveTime_1 == string.Empty ? 0.0 : Convert.ToDouble(curRow.leaveTime_1));
-				temp[1] += (curRow.leaveTime_2 == string.Empty ? 0.0 : Convert.ToDouble(curRow.leaveTime_2));
-				temp[2] += (curRow.leaveTime_3 == string.Empty ? 0.0 : Convert.ToDouble(curRow.leaveTime_3));
-				temp[3] += (curRow.leaveTime_4 == string.Empty ? 0.0 : Convert.ToDouble(curRow.leaveTime_4));
-				temp[4] += (curRow.leaveTime_5 == string.Empty ? 0.0 : Convert.ToDouble(curRow.leaveTime_5));
-				temp[5] += (curRow.leaveTime_6 == string.Empty ? 0.0 : Convert.ToDouble(curRow.leaveTime_6));
-				temp[6] += (curRow.productReturned == string.Empty ? 0.0 : Convert.ToDouble(curRow.productReturned));
-				temp[7] += (curRow.productReturnedWithoutLeaving == string.Empty ? 0.0 : Convert.ToDouble(curRow.productReturnedWithoutLeaving));
-				temp[8] += (curRow.discountPriceSum == string.Empty ? 0.0 : Convert.ToDouble(curRow.discountPriceSum));
-				temp[9] += (curRow.sellingPriceSum == string.Empty ? 0.0 : Convert.ToDouble(curRow.sellingPriceSum));
+				// "итого" для таблицы
+				wsh.Cells[totalRowIndex, "Y"] = temp[0];
+				wsh.Cells[totalRowIndex, "AB"] = temp[1];
+				wsh.Cells[totalRowIndex, "AE"] = temp[2];
+				wsh.Cells[totalRowIndex, "AH"] = temp[3];
+				wsh.Cells[totalRowIndex, "AK"] = temp[4];
+				wsh.Cells[totalRowIndex, "AN"] = temp[5];
+				wsh.Cells[totalRowIndex, "AQ"] = temp[6];
+				wsh.Cells[totalRowIndex, "AV"] = temp[7];
+				wsh.Cells[totalRowIndex, "BE"] = temp[8];
+				wsh.Cells[totalRowIndex, "BO"] = temp[9];
 			}
 
-			// "итого" для таблицы
-			wsh.Cells[totalRowIndex, "Y"] = temp[0];
-			wsh.Cells[totalRowIndex, "AB"] = temp[1];
-			wsh.Cells[totalRowIndex, "AE"] = temp[2];
-			wsh.Cells[totalRowIndex, "AH"] = temp[3];
-			wsh.Cells[totalRowIndex, "AK"] = temp[4];
-			wsh.Cells[totalRowIndex, "AN"] = temp[5];
-			wsh.Cells[totalRowIndex, "AQ"] = temp[6];
-			wsh.Cells[totalRowIndex, "AV"] = temp[7];
-			wsh.Cells[totalRowIndex, "BE"] = temp[8];
-			wsh.Cells[totalRowIndex, "BO"] = temp[9];
-		}
+			private void dataGridView_DocData_UserAddedRow(object sender, DataGridViewRowEventArgs e) {
+				if (dataGridView_DocData.Rows.Count > 26) dataGridView_DocData.AllowUserToAddRows = false; else dataGridView_DocData.AllowUserToDeleteRows = true;
 
-		private void dataGridView_DocData_UserAddedRow(object sender, DataGridViewRowEventArgs e) {
-			if (dataGridView_DocData.Rows.Count > 26) dataGridView_DocData.AllowUserToAddRows = false; else dataGridView_DocData.AllowUserToDeleteRows = true;
+				ReCountTotal();
+			}
 
-			ReCountTotal();
-		}
+			private void dataGridView_DocData_UserDeletedRow(object sender, DataGridViewRowEventArgs e) {
+				if (dataGridView_DocData.Rows.Count < 26) dataGridView_DocData.AllowUserToAddRows = true;
 
-		private void dataGridView_DocData_UserDeletedRow(object sender, DataGridViewRowEventArgs e) {
-			if (dataGridView_DocData.Rows.Count < 26) dataGridView_DocData.AllowUserToAddRows = true;
+				ReCountTotal();
+			}
 
-			ReCountTotal();
-		}
+			private void ToolStripMenuItem_Exit_Click(object sender, EventArgs e) {
+				Close();
+			}
 
-		private void ToolStripMenuItem_Exit_Click(object sender, EventArgs e) {
-			Close();
-		}
+			private void panel_table_Paint(object sender, PaintEventArgs e)
+			{
 
-        private void panel_table_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-    }*/
+			}
+		}*/
+    }
 }
 	
