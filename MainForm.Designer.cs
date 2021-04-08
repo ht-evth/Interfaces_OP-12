@@ -59,8 +59,6 @@ namespace Catering_OP_6 {
             this.textBox_spices_cop = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.textBox_salt = new System.Windows.Forms.TextBox();
-            this.textBox_spices = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -104,10 +102,14 @@ namespace Catering_OP_6 {
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox_spices = new System.Windows.Forms.NumericUpDown();
+            this.textBox_salt = new System.Windows.Forms.NumericUpDown();
             this.panel_table.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DocData)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_spices)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_salt)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -326,6 +328,8 @@ namespace Catering_OP_6 {
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox_salt);
+            this.groupBox1.Controls.Add(this.textBox_spices);
             this.groupBox1.Controls.Add(this.label35);
             this.groupBox1.Controls.Add(this.label32);
             this.groupBox1.Controls.Add(this.label34);
@@ -341,8 +345,6 @@ namespace Catering_OP_6 {
             this.groupBox1.Controls.Add(this.textBox_spices_cop);
             this.groupBox1.Controls.Add(this.label25);
             this.groupBox1.Controls.Add(this.label24);
-            this.groupBox1.Controls.Add(this.textBox_salt);
-            this.groupBox1.Controls.Add(this.textBox_spices);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(20, 379);
@@ -498,22 +500,6 @@ namespace Catering_OP_6 {
             this.label24.Size = new System.Drawing.Size(169, 21);
             this.label24.TabIndex = 93;
             this.label24.Text = "% к обороту на сумму";
-            // 
-            // textBox_salt
-            // 
-            this.textBox_salt.Location = new System.Drawing.Point(112, 79);
-            this.textBox_salt.Name = "textBox_salt";
-            this.textBox_salt.Size = new System.Drawing.Size(150, 29);
-            this.textBox_salt.TabIndex = 10;
-            this.textBox_salt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox_spices
-            // 
-            this.textBox_spices.Location = new System.Drawing.Point(112, 38);
-            this.textBox_spices.Name = "textBox_spices";
-            this.textBox_spices.Size = new System.Drawing.Size(150, 29);
-            this.textBox_spices.TabIndex = 9;
-            this.textBox_spices.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -714,6 +700,7 @@ namespace Catering_OP_6 {
             this.dataGridView_DocData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView_DocData.Size = new System.Drawing.Size(1055, 201);
             this.dataGridView_DocData.TabIndex = 8;
+            this.dataGridView_DocData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DocData_CellContentClick);
             this.dataGridView_DocData.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DocData_CellValueChanged);
             this.dataGridView_DocData.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_DocData_EditingControlShowing);
             this.dataGridView_DocData.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridView_DocData_RowPrePaint);
@@ -802,7 +789,7 @@ namespace Catering_OP_6 {
             // comboBox_StructPodrazd
             // 
             this.comboBox_StructPodrazd.FormattingEnabled = true;
-            this.comboBox_StructPodrazd.Location = new System.Drawing.Point(224, 108);
+            this.comboBox_StructPodrazd.Location = new System.Drawing.Point(225, 108);
             this.comboBox_StructPodrazd.Name = "comboBox_StructPodrazd";
             this.comboBox_StructPodrazd.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.comboBox_StructPodrazd.Size = new System.Drawing.Size(356, 29);
@@ -948,6 +935,36 @@ namespace Catering_OP_6 {
             this.note.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.note.Width = 118;
             // 
+            // textBox_spices
+            // 
+            this.textBox_spices.DecimalPlaces = 2;
+            this.textBox_spices.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.textBox_spices.Location = new System.Drawing.Point(112, 39);
+            this.textBox_spices.Name = "textBox_spices";
+            this.textBox_spices.Size = new System.Drawing.Size(150, 29);
+            this.textBox_spices.TabIndex = 105;
+            this.textBox_spices.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_spices.ValueChanged += new System.EventHandler(this.textBox_spices_ValueChanged);
+            // 
+            // textBox_salt
+            // 
+            this.textBox_salt.DecimalPlaces = 2;
+            this.textBox_salt.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.textBox_salt.Location = new System.Drawing.Point(112, 80);
+            this.textBox_salt.Name = "textBox_salt";
+            this.textBox_salt.Size = new System.Drawing.Size(150, 29);
+            this.textBox_salt.TabIndex = 106;
+            this.textBox_salt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_salt.ValueChanged += new System.EventHandler(this.textBox_salt_ValueChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -990,6 +1007,8 @@ namespace Catering_OP_6 {
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DocData)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_spices)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_salt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1062,8 +1081,6 @@ namespace Catering_OP_6 {
         private System.Windows.Forms.TextBox textBox_spices_cop;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox textBox_salt;
-        private System.Windows.Forms.TextBox textBox_spices;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn num_row;
@@ -1076,6 +1093,8 @@ namespace Catering_OP_6 {
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.DataGridViewTextBoxColumn sum;
         private System.Windows.Forms.DataGridViewTextBoxColumn note;
+        private System.Windows.Forms.NumericUpDown textBox_salt;
+        private System.Windows.Forms.NumericUpDown textBox_spices;
     }
 }
 

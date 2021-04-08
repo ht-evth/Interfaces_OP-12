@@ -77,6 +77,9 @@ namespace Catering_OP_6 {
 			// инициализация формы со всеми объектами
 			InitializeComponent();
 
+			this.textBox_salt.Controls[0].Visible = false;
+			this.textBox_spices.Controls[0].Visible = false;
+
 			// настройка таблицы - шрифт, невозможность изменения ширины столбцов
 			dataGridView_DocData.ColumnHeadersDefaultCellStyle.Font = new Font(this.Font.FontFamily, 10, FontStyle.Regular);
 			dataGridView_DocData.DefaultCellStyle.Font = new Font(this.Font.FontFamily, 10, FontStyle.Regular);
@@ -399,6 +402,7 @@ namespace Catering_OP_6 {
 				dataGridView_DocData.CurrentRow.Cells[7].Value = recordPrice[i];
 
 				ReCountRow(dataGridView_DocData.CurrentRow.Index);
+				updateValues();
 
 			}
 
@@ -413,6 +417,7 @@ namespace Catering_OP_6 {
 			if (e.ColumnIndex >= 1 && e.ColumnIndex <= 4)
 			{
 				ReCountRow(e.RowIndex);
+				updateValues();
 			}
 		}
 
@@ -648,6 +653,49 @@ namespace Catering_OP_6 {
 		{
 
 		}
-	}
+
+        private void textBox_spices_ValueChanged(object sender, EventArgs e)
+        {
+			updateValues();
+        }
+
+        private void textBox_salt_ValueChanged(object sender, EventArgs e)
+        {
+			updateValues();
+		}
+
+		private void updateValues()
+        {
+			double spices = Convert.ToDouble(textBox_spices.Value) / 100;
+			double salt = Convert.ToDouble(textBox_salt.Value) / 100;
+			double total = 0;
+
+			double fact_price = 0;
+			if (String.IsNullOrWhiteSpace(TextBox_TotalFactSum.Text) == false)
+				fact_price = Convert.ToDouble(TextBox_TotalFactSum.Text);
+
+			spices *= fact_price;
+			salt *= fact_price;
+			total = spices + salt;
+
+			//this.textBox_salt_rub.Text = NumToWord.Translate(Math.Floor(salt));
+			//this.textBox_salt_cop.Text = NumToWord.Translate(Math.Round(100 * (salt - Math.Floor(salt))));
+			//this.textBox_spices_rub.Text = NumToWord.Translate(Math.Floor(spices));
+			//this.textBox_spices_cop.Text = NumToWord.Translate(Math.Round(100 * (spices - Math.Floor(spices))));
+
+			this.textBox_salt_rub.Text = Math.Floor(salt).ToString();
+			this.textBox_salt_cop.Text = Math.Round(100 * (salt - Math.Floor(salt))).ToString();
+			this.textBox_spices_rub.Text = Math.Floor(spices).ToString();
+			this.textBox_spices_cop.Text = Math.Round(100 * (spices - Math.Floor(spices))).ToString();
+			this.textBox_total_spices_salt_rub.Text = Math.Floor(total).ToString();
+			this.textBox_total_spices_salt_cop.Text = Math.Round(100 * (total - Math.Floor(total))).ToString();
+
+		}
+
+        private void dataGridView_DocData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+    }
 }
 	
