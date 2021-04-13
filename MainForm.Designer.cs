@@ -24,6 +24,8 @@ namespace Catering_OP_6 {
 		/// содержимое этого метода с помощью редактора кода.
 		/// </summary>
 		private void InitializeComponent() {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label4 = new System.Windows.Forms.Label();
             this.TextBox_TotalSumKopek = new System.Windows.Forms.TextBox();
             this.DateTimePicker_DocDate = new System.Windows.Forms.DateTimePicker();
@@ -94,6 +96,7 @@ namespace Catering_OP_6 {
             this.TextBox_OperationType = new Catering_OP_6.PlaceHolderTextBox();
             this.TextBox_ActivityOKDP = new Catering_OP_6.PlaceHolderTextBox();
             this.TextBox_FormOKPO = new Catering_OP_6.PlaceHolderTextBox();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.num_row = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.num_card = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -323,11 +326,14 @@ namespace Catering_OP_6 {
             this.panel_table.Controls.Add(this.label29);
             this.panel_table.Location = new System.Drawing.Point(12, 170);
             this.panel_table.Name = "panel_table";
-            this.panel_table.Size = new System.Drawing.Size(1060, 566);
+            this.panel_table.Size = new System.Drawing.Size(1335, 566);
             this.panel_table.TabIndex = 8;
             // 
             // dataGridView_DocData
             // 
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_DocData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView_DocData.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView_DocData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_DocData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.num_row,
@@ -340,11 +346,9 @@ namespace Catering_OP_6 {
             this.price,
             this.sum,
             this.note});
-            this.dataGridView_DocData.EnableHeadersVisualStyles = false;
             this.dataGridView_DocData.Location = new System.Drawing.Point(0, 127);
             this.dataGridView_DocData.Name = "dataGridView_DocData";
-            this.dataGridView_DocData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView_DocData.Size = new System.Drawing.Size(1055, 201);
+            this.dataGridView_DocData.Size = new System.Drawing.Size(1335, 201);
             this.dataGridView_DocData.TabIndex = 8;
             this.dataGridView_DocData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DocData_CellContentClick);
             this.dataGridView_DocData.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DocData_CellValueChanged);
@@ -741,7 +745,7 @@ namespace Catering_OP_6 {
             this.ToolStripMenuItem_File});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1191, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1359, 24);
             this.menuStrip1.TabIndex = 89;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -889,87 +893,103 @@ namespace Catering_OP_6 {
             // 
             // num_row
             // 
+            this.num_row.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.num_row.DefaultCellStyle = dataGridViewCellStyle2;
             this.num_row.HeaderText = "Номер по порядку";
             this.num_row.Name = "num_row";
             this.num_row.ReadOnly = true;
             this.num_row.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.num_row.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.num_row.Width = 48;
             // 
             // num_card
             // 
+            this.num_card.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.num_card.HeaderText = "Номер калькуляционной карточки";
             this.num_card.Name = "num_card";
             this.num_card.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.num_card.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.num_card.Width = 59;
             // 
             // name
             // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.name.HeaderText = "Наименование";
             this.name.Name = "name";
             this.name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.name.Width = 274;
+            this.name.Width = 142;
             // 
             // code
             // 
+            this.code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.code.FillWeight = 60F;
             this.code.HeaderText = "Код";
             this.code.Name = "code";
             this.code.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.code.Width = 84;
             // 
             // amount
             // 
-            this.amount.HeaderText = "Количество";
+            this.amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.amount.FillWeight = 60F;
+            this.amount.HeaderText = "Кол-во";
+            this.amount.MinimumWidth = 10;
             this.amount.Name = "amount";
             this.amount.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.amount.Width = 62;
+            this.amount.Width = 84;
             // 
             // fact_price
             // 
-            this.fact_price.HeaderText = "Цена, руб. коп.";
+            this.fact_price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.fact_price.FillWeight = 60F;
+            this.fact_price.HeaderText = "Фактическая Цена, руб. коп.";
             this.fact_price.Name = "fact_price";
             this.fact_price.ReadOnly = true;
             this.fact_price.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.fact_price.Width = 91;
+            this.fact_price.Width = 159;
             // 
             // fact_sum
             // 
-            this.fact_sum.HeaderText = "Сумма, руб. коп.";
+            this.fact_sum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.fact_sum.FillWeight = 60F;
+            this.fact_sum.HeaderText = "Фактическая Сумма, руб. коп.";
             this.fact_sum.Name = "fact_sum";
             this.fact_sum.ReadOnly = true;
             this.fact_sum.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.fact_sum.Width = 92;
+            this.fact_sum.Width = 169;
             // 
             // price
             // 
-            this.price.HeaderText = "Цена, руб. коп.";
+            this.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.price.FillWeight = 60F;
+            this.price.HeaderText = "Учётная Цена, руб. коп.";
             this.price.Name = "price";
             this.price.ReadOnly = true;
             this.price.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.price.Width = 92;
+            this.price.Width = 159;
             // 
             // sum
             // 
-            this.sum.HeaderText = "Сумма, руб. коп.";
+            this.sum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.sum.FillWeight = 60F;
+            this.sum.HeaderText = "Учётная Сумма, руб. коп.";
             this.sum.Name = "sum";
             this.sum.ReadOnly = true;
             this.sum.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.sum.Width = 92;
+            this.sum.Width = 113;
             // 
             // note
             // 
+            this.note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.note.HeaderText = "Примечание";
             this.note.Name = "note";
             this.note.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.note.Width = 118;
+            this.note.Width = 126;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1191, 827);
+            this.ClientSize = new System.Drawing.Size(1359, 827);
             this.Controls.Add(this.comboBox_StructPodrazd);
             this.Controls.Add(this.ComboBox_Organization);
             this.Controls.Add(this.Link_ResponsiblePersons);
@@ -1085,6 +1105,7 @@ namespace Catering_OP_6 {
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown textBox_salt;
         private System.Windows.Forms.NumericUpDown textBox_spices;
+        private System.Windows.Forms.HelpProvider helpProvider1;
         private System.Windows.Forms.DataGridViewTextBoxColumn num_row;
         private System.Windows.Forms.DataGridViewComboBoxColumn num_card;
         private System.Windows.Forms.DataGridViewComboBoxColumn name;

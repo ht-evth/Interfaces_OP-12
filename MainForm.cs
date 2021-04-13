@@ -83,7 +83,7 @@ namespace Catering_OP_6 {
 			// настройка таблицы - шрифт, невозможность изменения ширины столбцов
 			dataGridView_DocData.ColumnHeadersDefaultCellStyle.Font = new Font(this.Font.FontFamily, 10, FontStyle.Regular);
 			dataGridView_DocData.DefaultCellStyle.Font = new Font(this.Font.FontFamily, 10, FontStyle.Regular);
-			dataGridView_DocData.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+			//dataGridView_DocData.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
 			// создание формы "ответственные лица"
 			personsForm = new PersonsForm(this);
