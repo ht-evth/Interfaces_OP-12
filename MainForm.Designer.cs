@@ -38,7 +38,25 @@ namespace Catering_OP_6 {
             this.label5 = new System.Windows.Forms.Label();
             this.Button_ExportToExcel = new System.Windows.Forms.Button();
             this.panel_table = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.TextBox_TotalSumRubInWords = new Catering_OP_6.PlaceHolderTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.Link_ResponsiblePersons = new System.Windows.Forms.LinkLabel();
             this.dataGridView_DocData = new System.Windows.Forms.DataGridView();
+            this.num_row = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.num_card = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.code = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fact_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fact_sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox_salt = new System.Windows.Forms.NumericUpDown();
             this.textBox_spices = new System.Windows.Forms.NumericUpDown();
@@ -73,38 +91,20 @@ namespace Catering_OP_6 {
             this.ToolStripMenuItem_Export = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_ExportToExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_Exit = new System.Windows.Forms.ToolStripMenuItem();
-            this.Link_ResponsiblePersons = new System.Windows.Forms.LinkLabel();
             this.ComboBox_Organization = new System.Windows.Forms.ComboBox();
             this.comboBox_StructPodrazd = new System.Windows.Forms.ComboBox();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
-            this.num_row = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.num_card = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.code = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fact_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fact_sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label6 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.TextBox_TotalSumRubInWords = new Catering_OP_6.PlaceHolderTextBox();
             this.TextBox_DocNum = new Catering_OP_6.PlaceHolderTextBox();
             this.TextBox_OperationType = new Catering_OP_6.PlaceHolderTextBox();
             this.TextBox_ActivityOKDP = new Catering_OP_6.PlaceHolderTextBox();
             this.TextBox_FormOKPO = new Catering_OP_6.PlaceHolderTextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.panel_table.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DocData)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textBox_salt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox_spices)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // TextBox_TotalSumKopek
@@ -239,6 +239,95 @@ namespace Catering_OP_6 {
             this.panel_table.Size = new System.Drawing.Size(1335, 566);
             this.panel_table.TabIndex = 8;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe WP", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(1087, 299);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(100, 17);
+            this.label8.TabIndex = 115;
+            this.label8.Text = "Учётная. сумма";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe WP", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(970, 299);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(93, 17);
+            this.label9.TabIndex = 114;
+            this.label9.Text = "Учётная. цена";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe WP", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(864, 299);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(79, 17);
+            this.label7.TabIndex = 113;
+            this.label7.Text = "Факт. сумма";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe WP", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(753, 299);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(72, 17);
+            this.label4.TabIndex = 112;
+            this.label4.Text = "Факт. цена";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.TextBox_TotalSumRubInWords);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.TextBox_TotalSumKopek);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Font = new System.Drawing.Font("Segoe WP", 12F, System.Drawing.FontStyle.Bold);
+            this.groupBox2.Location = new System.Drawing.Point(665, 379);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(656, 103);
+            this.groupBox2.TabIndex = 111;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Выручка кассы";
+            // 
+            // TextBox_TotalSumRubInWords
+            // 
+            this.TextBox_TotalSumRubInWords.Font = new System.Drawing.Font("Segoe WP", 12F, System.Drawing.FontStyle.Italic);
+            this.TextBox_TotalSumRubInWords.ForeColor = System.Drawing.Color.Gray;
+            this.TextBox_TotalSumRubInWords.Location = new System.Drawing.Point(28, 41);
+            this.TextBox_TotalSumRubInWords.Name = "TextBox_TotalSumRubInWords";
+            this.TextBox_TotalSumRubInWords.PlaceHolderText = "сумма прописью";
+            this.TextBox_TotalSumRubInWords.ReadOnly = true;
+            this.TextBox_TotalSumRubInWords.Size = new System.Drawing.Size(469, 29);
+            this.TextBox_TotalSumRubInWords.TabIndex = 11;
+            this.TextBox_TotalSumRubInWords.TabStop = false;
+            this.TextBox_TotalSumRubInWords.Text = "сумма прописью";
+            this.TextBox_TotalSumRubInWords.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe WP", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(662, 299);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 17);
+            this.label6.TabIndex = 110;
+            this.label6.Text = "Кол-во";
+            // 
+            // Link_ResponsiblePersons
+            // 
+            this.Link_ResponsiblePersons.AutoSize = true;
+            this.Link_ResponsiblePersons.Location = new System.Drawing.Point(940, 511);
+            this.Link_ResponsiblePersons.Name = "Link_ResponsiblePersons";
+            this.Link_ResponsiblePersons.Size = new System.Drawing.Size(158, 21);
+            this.Link_ResponsiblePersons.TabIndex = 11;
+            this.Link_ResponsiblePersons.TabStop = true;
+            this.Link_ResponsiblePersons.Text = "Ответственные лица";
+            this.Link_ResponsiblePersons.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Link_ResponsiblePersons_Click);
+            // 
             // dataGridView_DocData
             // 
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -264,6 +353,105 @@ namespace Catering_OP_6 {
             this.dataGridView_DocData.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DocData_CellValueChanged);
             this.dataGridView_DocData.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_DocData_EditingControlShowing);
             this.dataGridView_DocData.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridView_DocData_RowPrePaint);
+            // 
+            // num_row
+            // 
+            this.num_row.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.num_row.DefaultCellStyle = dataGridViewCellStyle2;
+            this.num_row.FillWeight = 45F;
+            this.num_row.HeaderText = "Номер по порядку";
+            this.num_row.MinimumWidth = 40;
+            this.num_row.Name = "num_row";
+            this.num_row.ReadOnly = true;
+            this.num_row.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.num_row.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // num_card
+            // 
+            this.num_card.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.num_card.HeaderText = "Номер калькуляционной карточки";
+            this.num_card.MinimumWidth = 40;
+            this.num_card.Name = "num_card";
+            this.num_card.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.num_card.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.name.HeaderText = "Наименование";
+            this.name.MinimumWidth = 45;
+            this.name.Name = "name";
+            this.name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // code
+            // 
+            this.code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.code.FillWeight = 60F;
+            this.code.HeaderText = "Код";
+            this.code.MinimumWidth = 30;
+            this.code.Name = "code";
+            this.code.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // amount
+            // 
+            this.amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.amount.FillWeight = 60F;
+            this.amount.HeaderText = "Кол-во";
+            this.amount.MinimumWidth = 25;
+            this.amount.Name = "amount";
+            this.amount.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.amount.Width = 84;
+            // 
+            // fact_price
+            // 
+            this.fact_price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.fact_price.FillWeight = 60F;
+            this.fact_price.HeaderText = "Фактическая Цена, руб. коп.";
+            this.fact_price.MinimumWidth = 50;
+            this.fact_price.Name = "fact_price";
+            this.fact_price.ReadOnly = true;
+            this.fact_price.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // fact_sum
+            // 
+            this.fact_sum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.fact_sum.FillWeight = 60F;
+            this.fact_sum.HeaderText = "Фактическая Сумма, руб. коп.";
+            this.fact_sum.MinimumWidth = 50;
+            this.fact_sum.Name = "fact_sum";
+            this.fact_sum.ReadOnly = true;
+            this.fact_sum.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // price
+            // 
+            this.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.price.FillWeight = 60F;
+            this.price.HeaderText = "Учётная Цена, руб. коп.";
+            this.price.MinimumWidth = 50;
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            this.price.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // sum
+            // 
+            this.sum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.sum.FillWeight = 60F;
+            this.sum.HeaderText = "Учётная Сумма, руб. коп.";
+            this.sum.MinimumWidth = 50;
+            this.sum.Name = "sum";
+            this.sum.ReadOnly = true;
+            this.sum.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // note
+            // 
+            this.note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.note.HeaderText = "Примечание";
+            this.note.MinimumWidth = 15;
+            this.note.Name = "note";
+            this.note.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.note.Width = 126;
             // 
             // groupBox1
             // 
@@ -492,7 +680,7 @@ namespace Catering_OP_6 {
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Segoe WP", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label33.Location = new System.Drawing.Point(596, 324);
+            this.label33.Location = new System.Drawing.Point(596, 323);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(44, 17);
             this.label33.TabIndex = 109;
@@ -622,17 +810,6 @@ namespace Catering_OP_6 {
             this.ToolStripMenuItem_Exit.Size = new System.Drawing.Size(135, 22);
             this.ToolStripMenuItem_Exit.Text = "Выход";
             // 
-            // Link_ResponsiblePersons
-            // 
-            this.Link_ResponsiblePersons.AutoSize = true;
-            this.Link_ResponsiblePersons.Location = new System.Drawing.Point(940, 511);
-            this.Link_ResponsiblePersons.Name = "Link_ResponsiblePersons";
-            this.Link_ResponsiblePersons.Size = new System.Drawing.Size(158, 21);
-            this.Link_ResponsiblePersons.TabIndex = 11;
-            this.Link_ResponsiblePersons.TabStop = true;
-            this.Link_ResponsiblePersons.Text = "Ответственные лица";
-            this.Link_ResponsiblePersons.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Link_ResponsiblePersons_Click);
-            // 
             // ComboBox_Organization
             // 
             this.ComboBox_Organization.FormattingEnabled = true;
@@ -650,143 +827,6 @@ namespace Catering_OP_6 {
             this.comboBox_StructPodrazd.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.comboBox_StructPodrazd.Size = new System.Drawing.Size(356, 29);
             this.comboBox_StructPodrazd.TabIndex = 4;
-            // 
-            // num_row
-            // 
-            this.num_row.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.num_row.DefaultCellStyle = dataGridViewCellStyle2;
-            this.num_row.FillWeight = 45F;
-            this.num_row.HeaderText = "Номер по порядку";
-            this.num_row.MinimumWidth = 40;
-            this.num_row.Name = "num_row";
-            this.num_row.ReadOnly = true;
-            this.num_row.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.num_row.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // num_card
-            // 
-            this.num_card.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.num_card.HeaderText = "Номер калькуляционной карточки";
-            this.num_card.MinimumWidth = 40;
-            this.num_card.Name = "num_card";
-            this.num_card.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.num_card.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // name
-            // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.name.HeaderText = "Наименование";
-            this.name.MinimumWidth = 45;
-            this.name.Name = "name";
-            this.name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // code
-            // 
-            this.code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.code.FillWeight = 60F;
-            this.code.HeaderText = "Код";
-            this.code.MinimumWidth = 30;
-            this.code.Name = "code";
-            this.code.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // amount
-            // 
-            this.amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.amount.FillWeight = 60F;
-            this.amount.HeaderText = "Кол-во";
-            this.amount.MinimumWidth = 25;
-            this.amount.Name = "amount";
-            this.amount.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.amount.Width = 84;
-            // 
-            // fact_price
-            // 
-            this.fact_price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.fact_price.FillWeight = 60F;
-            this.fact_price.HeaderText = "Фактическая Цена, руб. коп.";
-            this.fact_price.MinimumWidth = 50;
-            this.fact_price.Name = "fact_price";
-            this.fact_price.ReadOnly = true;
-            this.fact_price.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // fact_sum
-            // 
-            this.fact_sum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.fact_sum.FillWeight = 60F;
-            this.fact_sum.HeaderText = "Фактическая Сумма, руб. коп.";
-            this.fact_sum.MinimumWidth = 50;
-            this.fact_sum.Name = "fact_sum";
-            this.fact_sum.ReadOnly = true;
-            this.fact_sum.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // price
-            // 
-            this.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.price.FillWeight = 60F;
-            this.price.HeaderText = "Учётная Цена, руб. коп.";
-            this.price.MinimumWidth = 50;
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            this.price.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // sum
-            // 
-            this.sum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.sum.FillWeight = 60F;
-            this.sum.HeaderText = "Учётная Сумма, руб. коп.";
-            this.sum.MinimumWidth = 50;
-            this.sum.Name = "sum";
-            this.sum.ReadOnly = true;
-            this.sum.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // note
-            // 
-            this.note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.note.HeaderText = "Примечание";
-            this.note.MinimumWidth = 15;
-            this.note.Name = "note";
-            this.note.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.note.Width = 126;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe WP", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(662, 299);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 17);
-            this.label6.TabIndex = 110;
-            this.label6.Text = "Кол-во";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.TextBox_TotalSumRubInWords);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.TextBox_TotalSumKopek);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Font = new System.Drawing.Font("Segoe WP", 12F, System.Drawing.FontStyle.Bold);
-            this.groupBox2.Location = new System.Drawing.Point(665, 379);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(656, 103);
-            this.groupBox2.TabIndex = 111;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Выручка кассы";
-            // 
-            // TextBox_TotalSumRubInWords
-            // 
-            this.TextBox_TotalSumRubInWords.Font = new System.Drawing.Font("Segoe WP", 12F, System.Drawing.FontStyle.Italic);
-            this.TextBox_TotalSumRubInWords.ForeColor = System.Drawing.Color.Gray;
-            this.TextBox_TotalSumRubInWords.Location = new System.Drawing.Point(28, 41);
-            this.TextBox_TotalSumRubInWords.Name = "TextBox_TotalSumRubInWords";
-            this.TextBox_TotalSumRubInWords.PlaceHolderText = "сумма прописью";
-            this.TextBox_TotalSumRubInWords.ReadOnly = true;
-            this.TextBox_TotalSumRubInWords.Size = new System.Drawing.Size(469, 29);
-            this.TextBox_TotalSumRubInWords.TabIndex = 11;
-            this.TextBox_TotalSumRubInWords.TabStop = false;
-            this.TextBox_TotalSumRubInWords.Text = "сумма прописью";
-            this.TextBox_TotalSumRubInWords.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TextBox_DocNum
             // 
@@ -836,46 +876,6 @@ namespace Catering_OP_6 {
             this.TextBox_FormOKPO.Text = "форма по ОКПО";
             this.TextBox_FormOKPO.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe WP", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(753, 299);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 17);
-            this.label4.TabIndex = 112;
-            this.label4.Text = "Факт. цена";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe WP", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(864, 299);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(79, 17);
-            this.label7.TabIndex = 113;
-            this.label7.Text = "Факт. сумма";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe WP", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(1087, 299);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(100, 17);
-            this.label8.TabIndex = 115;
-            this.label8.Text = "Учётная. сумма";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe WP", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(970, 299);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(93, 17);
-            this.label9.TabIndex = 114;
-            this.label9.Text = "Учётная. цена";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -906,6 +906,8 @@ namespace Catering_OP_6 {
             this.Text = "ОП-12 Акт о реализации готовых изделий кухни за наличный расчет";
             this.panel_table.ResumeLayout(false);
             this.panel_table.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DocData)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -913,8 +915,6 @@ namespace Catering_OP_6 {
             ((System.ComponentModel.ISupportInitialize)(this.textBox_spices)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
