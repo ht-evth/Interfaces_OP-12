@@ -707,11 +707,6 @@ namespace Catering_OP_6 {
 			this.textBox_total_spices_salt_cop.Text = Math.Round(100 * (total - Math.Floor(total))).ToString();
 
 		}
-
-        private void dataGridView_DocData_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }
 	

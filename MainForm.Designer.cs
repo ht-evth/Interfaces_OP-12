@@ -349,7 +349,6 @@ namespace Catering_OP_6 {
             this.dataGridView_DocData.Name = "dataGridView_DocData";
             this.dataGridView_DocData.Size = new System.Drawing.Size(1309, 275);
             this.dataGridView_DocData.TabIndex = 8;
-            this.dataGridView_DocData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DocData_CellContentClick);
             this.dataGridView_DocData.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DocData_CellValueChanged);
             this.dataGridView_DocData.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_DocData_EditingControlShowing);
             this.dataGridView_DocData.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridView_DocData_RowPrePaint);
