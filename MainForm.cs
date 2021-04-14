@@ -102,7 +102,13 @@ namespace Catering_OP_6 {
 				TextBox_TotalAmount,
 				TextBox_TotalFactSum,
 				TextBox_TotalRecordSum,
-				TextBox_TotalSumKopek
+				TextBox_TotalSumKopek,
+				textBox_salt_cop,
+				textBox_salt_rub,
+				textBox_spices_cop,
+				textBox_spices_rub,
+				textBox_total_spices_salt_rub,
+				textBox_total_spices_salt_cop
 			};
 
 			// в таблицу добавить в столбцы значения для выборов
@@ -259,9 +265,8 @@ namespace Catering_OP_6 {
 			}
 		}
 
-		/*
-
-		private void ClearForm() {
+		private void ClearForm() 
+		{
 			// очистить все текстбоксы + таблицу
 			ClearTable();
 
@@ -270,6 +275,8 @@ namespace Catering_OP_6 {
 				item.Text = "";
 				item.setPlaceholder();
 			}
+
+
 
 			// обычные текстбоксы - пустая строка
 			foreach(var item in usualTextBoxes) item.Text = "";
@@ -291,9 +298,10 @@ namespace Catering_OP_6 {
 			// обычные текстбоксы забить пустой строкой
 			foreach (var item in usualTextBoxes) item.Text = "";
 
+			textBox_salt.Value = 0;
+			textBox_spices.Value = 0;
+
 			// с плейсхолдерами - пустой строкой и восстановить плейсхолдера
-			TextBox_TotalQuantityInWords.Text = "";
-			TextBox_TotalQuantityInWords.setPlaceholder();
 			TextBox_TotalSumRubInWords.Text = "";
 			TextBox_TotalSumRubInWords.setPlaceholder();
 		}
@@ -326,7 +334,6 @@ namespace Catering_OP_6 {
 			
 		}
 
-		*/
 
 
 		private void dataGridView_DocData_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e) 
@@ -696,6 +703,12 @@ namespace Catering_OP_6 {
         {
 
         }
+
+        private void ToolStripMenuItem_Clear_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
 	
